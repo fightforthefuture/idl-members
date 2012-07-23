@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "campaigns.variant", "fields": {"name": "Banner", "slug": "banner"}}, {"pk": 2, "model": "campaigns.variant", "fields": {"name": "Modal", "slug": "modal"}}]

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png"  href="{{ SECURE_STATIC_URL }}idl.png">
+    <title>{% block title %}The Internet Defense League - Protecting the Free Internet since 2012.{% endblock title %}</title>
+    <link href="{{ SECURE_STATIC_URL}}css/one.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <script src="{{ SECURE_STATIC_URL }}js/customize.js" async="async"></script>
+    <meta property="og:title" content="Want to help defend the internet from censorship and broken legislation? Join me in the Internet Defense League! If we act together, we can save the net." />
+          <meta property="og:description" content="The Internet Defense League is a group of sites simultaneously sound the alarm when powerful interests try to take control of the internet. Think the SOPA blackout, but larger and even more unstoppable. We have big plans that you can be a part of. Register your site now!" />
+          <meta property="og:image" content="{{ SECURE_STATIC_URL }}images/fb_share.png" />
+          <meta property="og:url" content="http://internetdefenseleague.org/" />
+          <meta property="og:type" content="article" />
+            <meta property="fb:admins" content="678090273"/>
+            <!--[if IE]>
+            <style>
+            a#tag {display: none;}
+            .indented {border: 1px solid #eee;}
+            .biggie span.inputs {width: 250px;}
+            .small span {width: 190px;}
+            
+            .row .small {height: 230px;}
+                </style>                
+            <![endif]-->
+            
+</head>
+
+<body>
+
+    <a id="tag" href="http://fightforthefuture.org"  target="blank"></a>
+    <div id="wrapper">
+        <div id="container">
+
+            {% block main %}
+
+            {% endblock main %}
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26978317-6']);
+        _gaq.push(['_setDomainName', 'internetdefenseleague.org']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+        $("input").focus(function() {
+            $(this).addClass('activez');
+        });     
+    </script>
+    
+</body>
+</html>

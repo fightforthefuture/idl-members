@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "sites.site", "fields": {"domain": "127.0.0.1:8000", "name": "Dev"}}, {"pk": 3, "model": "sites.site", "fields": {"domain": "127.0.0.1:8000", "name": "Dev"}}, {"pk": 4, "model": "sites.site", "fields": {"domain": "idl.herokuapp.com", "name": "Production"}}, {"pk": 2, "model": "sites.site", "fields": {"domain": "yorumipsum.com", "name": "Production"}}]
