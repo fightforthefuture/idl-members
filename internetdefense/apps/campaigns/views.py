@@ -117,16 +117,25 @@ class IncludeView(TemplateView):
         the same request/response cycle), return that.
 
         Returns a boolean indicating whether the IDL code is being tested
-        (i.e. a test message should be returned).
+        (i.e. a test message should be returned). This is triggered in one of
+        two ways:
+
+        1) if the _idl_test querystring parameter is set to '1' on either the
+        referring (i.e. embedding) page, or;
+        2) in cases where that isn't possible, the same querystring parameter
+        can be set as the URL of the include itself (i.e. of this view)
         """
+        querystring_test = '_idl_test' in self.request.GET and '1' in \
+            self.request.GET['_idl_test']
         if self.test is None:
             try:
                 referer = urlparse(self.request.META['HTTP_REFERER'])
             except KeyError:
-                self.test = False
+                self.test = querystring_test
             else:
                 qs = parse_qs(referer[4])
-                self.test = '_idl_test' in qs and '1' in qs['_idl_test']
+                self.test = ('_idl_test' in qs and '1' in qs['_idl_test']) or \
+                    querystring_test
         return self.test
 
     def get_context_data(self, **kwargs):
