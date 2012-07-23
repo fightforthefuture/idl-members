@@ -1,6 +1,4 @@
-# Internet Defense League include code
-
-Information on the installation, configuration, and design of the Internet Defense League include code.
+Information on the installation, configuration, and design of the Internet Defense League member code.
 
 ## Installation
 
