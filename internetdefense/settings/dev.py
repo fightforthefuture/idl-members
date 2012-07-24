@@ -1,3 +1,7 @@
+"""
+Settings specific to development environments
+"""
+
 from os import path
 
 from settings.base import PROJECT_DIR, MIDDLEWARE_CLASSES, INSTALLED_APPS
@@ -15,10 +19,11 @@ TEMPLATE_DEBUG = True
 SITE_ID = 1
 
 INCLUDE_URL = '127.0.0.1:8000/include/'
-STATIC_URL = 'http://internetdefenseleague.s3.amazonaws.com/'
+STATIC_URL = '/static/'
+
 
 def show_toolbar(request):
-    return False
+    return True
 
 DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,

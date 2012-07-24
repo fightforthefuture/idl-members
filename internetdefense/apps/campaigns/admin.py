@@ -1,20 +1,18 @@
 from django.contrib import admin
-from campaigns.models import Campaign, HTMLOverride, Variant
-
-
-class HTMLOverrideInline(admin.TabularInline):
-    max_num = len(Variant.objects.all())
-    model = HTMLOverride
+from campaigns.models import Campaign, Variant
 
 
 class CampaignAdmin(admin.ModelAdmin):
-    inlines = [
-        HTMLOverrideInline,
-    ]
+    """
+    Simple admin for the Campaign model
+    """
     prepopulated_fields = {'slug': ('name',)}
 
 
 class VariantAdmin(admin.ModelAdmin):
+    """
+    Simple admin for the Variant model
+    """
     prepopulated_fields = {'slug': ('name',)}
 
 

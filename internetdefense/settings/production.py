@@ -1,3 +1,7 @@
+"""
+Settings specific to the production environment.
+"""
+
 import os
 
 from memcacheify import memcacheify

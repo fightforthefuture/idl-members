@@ -1,3 +1,4 @@
+env
 venv
 *.db
 *.pyc
@@ -10,3 +11,4 @@ pip-*.txt
 *.log
 cache
 collected_static
+node_modules

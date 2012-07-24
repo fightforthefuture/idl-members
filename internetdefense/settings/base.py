@@ -1,3 +1,8 @@
+"""
+Base settings that are applied to each environment, before overriding with any
+environment-specific settings.
+"""
+
 from os import pardir, path
 
 # Path settings

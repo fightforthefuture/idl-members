@@ -1,3 +1,4 @@
+# Requirements declaration for development environments.
 Django==1.4
 South==0.7.5
 django-debug-toolbar==0.9.4

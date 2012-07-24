@@ -15,7 +15,7 @@ class IncludeView(TemplateView):
     """
     A view to generate the IDL JavaScript
 
-    Renders the JavaScript through a template, to ensure that only the
+    Renders the JavaScript as a Django template, to ensure that only the
     necessary pieces are included. Additionally, to ensure the smallest
     possible payload, the results are minified in the template and are
     gzipped before transmission.
