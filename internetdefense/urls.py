@@ -4,8 +4,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
-from campaigns.views import IncludeView
-from include.views import CustomizeView
+from include.views import CustomizeView, IncludeView
 
 
 admin.autodiscover()
