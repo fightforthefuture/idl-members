@@ -89,3 +89,9 @@ ROOT_URLCONF = 'urls'
 INTERNAL_IPS = ('127.0.0.1',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 BROKER_BACKEND = 'django'
+
+# Ignore migrations in django-celery to work around #149:
+# https://github.com/celery/django-celery/issues/149
+SOUTH_MIGRATION_MODULES = {
+    'djcelery': 'ignore',
+}
