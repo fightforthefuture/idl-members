@@ -28,3 +28,12 @@ class ReachView(TemplateView):
         context = super(ReachView, self).get_context_data(**kwargs)
         context['reach'] = cache.get(CACHE_KEY_REACH)
         return context
+
+    def render_to_response(self, context, **response_kwargs):
+        """
+        Returns a response with a template rendered with the given context.
+        """
+        response = super(ReachView, self).render_to_response(context, \
+            **response_kwargs)
+        response['Access-Control-Allow-Origin'] = '*'
+        return response
