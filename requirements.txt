@@ -12,4 +12,3 @@ slimit==0.7.4
 django-storages==1.1.4
 boto==2.5.2
 newrelic
-django-celery==3.0.4
