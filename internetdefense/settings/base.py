@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'kombu.transport.django',
+    'djcelery',
     'south',
     'campaigns',
     'analytics',
@@ -86,3 +88,4 @@ SECRET_KEY = 'dskba^j4%zysn*d-+yh!w!2_vd938d2pia0dk0v40yie^t!tc$'
 ROOT_URLCONF = 'urls'
 INTERNAL_IPS = ('127.0.0.1',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+BROKER_BACKEND = 'django'
