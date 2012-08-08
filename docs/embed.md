@@ -116,7 +116,7 @@ There are a number of pros and cons related to the choice to load a ``<script>``
 
 These are all related to security, as the prominence of both IDL and its member sites makes us a potential attack vector. If a third party gains access to IDL's servers, they can:
 
-- Change the message of the ``<iframe>`` endpoint, which coulf be immediately proliferated to all IDL member sites.
+- Change the message of the ``<iframe>`` endpoint, which could be immediately proliferated to all IDL member sites.
 - Modify the JavaScript included into pages, giving them access to IDL members' users' cookie data, among other things. This could be used to hijack Reddit session IDs, for example, with relative ease.
 
 Mitigation steps (aside from common security server-side security measures) to these possibilities are not immediately obvious, but might include:
