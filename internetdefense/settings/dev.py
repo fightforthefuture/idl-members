@@ -9,7 +9,7 @@ from settings.base import PROJECT_DIR, MIDDLEWARE_CLASSES, INSTALLED_APPS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': path.join(PROJECT_DIR, 'data.db'),
+        'NAME': path.join(PROJECT_DIR, 'data', 'data.db'),
     }
 }
 

@@ -21,6 +21,12 @@ FIXTURE_DIRS = (
     path.join(APP_DIR, 'fixtures'),
 )
 
+# GeoIP Settings
+GEOIP_DATA = path.join(PROJECT_DIR, 'data', 'GeoLiteCity.dat')
+GEOIP_SESSION_FIELDS = [
+    'country_name',
+    'country_code',
+]
 
 # Debugging settings
 DEBUG = False
@@ -49,11 +55,14 @@ TEMPLATE_LOADERS = [
 ]
 MIDDLEWARE_CLASSES = [
     'django.middleware.gzip.GZipMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'ip2geo.middleware.CityMiddleware',
 ]
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -67,6 +76,7 @@ INSTALLED_APPS = [
     'campaigns',
     'analytics',
     'include',
+    'ip2geo',
 ]
 TEMPLATE_CONTEXT_PROCESSORS = [
     'django.contrib.auth.context_processors.auth',
@@ -78,6 +88,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.contrib.messages.context_processors.messages',
     'include.context_processors.include_url',
     'internetdefense.context_processors.secure_static_url',
+    'ip2geo.context_processors.add_session',
 ]
 
 

@@ -1,4 +1,5 @@
 from django.core.cache import cache
+from django.core.management import call_command
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
@@ -22,16 +23,21 @@ class ReachView(TemplateView):
 
     def get_context_data(self, **kwargs):
         """
-        Adds QuerySets of all active campaigns and presentational variants to
-        the template context.
+        Adds IDL network reach to context, forcing the number to be calculated
+        if it isn't already in cache.
         """
         context = super(ReachView, self).get_context_data(**kwargs)
-        context['reach'] = cache.get(CACHE_KEY_REACH)
+        reach = cache.get(CACHE_KEY_REACH)
+        if not reach:
+            call_command('get_reach')
+            reach = cache.get(CACHE_KEY_REACH) or None
+        context['reach'] = reach
+        context['progress'] = int(85000 / 3500)  # Goal of 350K, as a percent
         return context
 
     def render_to_response(self, context, **response_kwargs):
         """
-        Returns a response with a template rendered with the given context.
+        Adds CORS headers to response
         """
         response = super(ReachView, self).render_to_response(context, \
             **response_kwargs)

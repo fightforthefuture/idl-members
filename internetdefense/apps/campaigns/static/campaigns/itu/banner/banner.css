@@ -1,0 +1,178 @@
+@import url(http://fonts.googleapis.com/css?family=Bevan);
+
+html{
+    background: url(bg.png) repeat-x bottom;
+}
+
+body{
+    height: 90px;
+    margin: 0 auto;
+    width: 1015px;
+    font: 12px/1.33 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+a{
+    color: #0f985c;
+}
+
+h1{
+    background: url(logo.png) no-repeat left;
+    font: 18px/1.17 'Bevan', cursive;
+    color: #eac704;
+    text-shadow: 1px 1px 0 #000;
+    min-height: 68px;
+    padding: 22px 0 0 70px;
+    float: left;
+    width: 230px;
+}
+    h1 strong{
+        color: #FFF;
+        display: block;
+    }
+
+input[type="email"],
+input[type="tel"],
+input[type="text"]{
+    color: #292929;
+    border: 1px solid #FFF;
+    background: #FFF;
+    padding: 0 10px;
+    width: 128px;
+    margin: 0;
+    outline: 0;
+    font: 14px/1.86 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+    #id_email{
+        width: 158px;
+    }
+    #id_phone{
+        width: 118px;
+    }
+    #id_country{
+            width: 118px;
+    }
+
+input[disabled]{
+    color: #818181;
+}
+button[disabled="disabled"]{
+    cursor: default;
+    background: #999;
+}
+::-webkit-input-placeholder{
+    color: #818181;
+}
+:-moz-placeholder{
+    color: #818181;
+}
+:-ms-input-placeholder{
+    color: #818181;
+}
+
+form{
+    float: right;
+    display: block;
+    width: 715px;
+    padding-top: 7px;
+}
+
+.field{
+    float: left;
+    margin-right: 5px;
+    position: relative;
+    height: 30px;
+    padding-top: 18px;
+}
+    .field p{
+        font-size: 11px;
+        text-align: right;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0;
+    }
+    .field a{
+        color: #AAA;
+        line-height: 10px;
+    }
+        .field a:hover{
+            color: #CCC;
+        }
+
+button{
+    display: inline-block;
+    background: #14a767;
+    border: 0;
+    color: #FFF;
+    height: 28px;
+    padding: 2px 20px 0;
+    background: -moz-linear-gradient(top, #14a767 0%, #09834e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#14a767), color-stop(100%,#09834e));
+    background: -webkit-linear-gradient(top, #14a767 0%,#09834e 100%);
+    background: -o-linear-gradient(top, #14a767 0%,#09834e 100%);
+    background: -ms-linear-gradient(top, #14a767 0%,#09834e 100%);
+    background: linear-gradient(to bottom, #14a767 0%,#09834e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14a767', endColorstr='#09834e',GradientType=0 );
+    font: 14px/1.72 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+    #button_thanks{
+        width: 95px;
+    }
+    #button_email:before{
+        content: url(mail.png);
+        margin-right: 4px;
+        position: relative;
+        top: 3px;
+    }
+    #button_call:before{
+        content: url(phone.png);
+        margin-right: 2px;
+        position: relative;
+        top: 3px;
+    }
+
+body.us{
+    width: 850px;
+}
+body.us form{
+    width: 550px;
+}
+body.us #call,
+body.us #phone{
+    display: none;
+}
+body.us #id_email{
+    width: 208px;
+}
+body.us #id_country{
+    width: 178px;
+}
+body.us .field{
+    margin-right: 8px;
+}
+
+input.error{
+    border-color: red;
+    color: red;
+}
+    input.error::-webkit-input-placeholder {
+        color: red;
+    }
+    input.error:-moz-placeholder {
+        color: red;
+    }
+    input.error:-ms-input-placeholder {
+        color: red;
+    }
+
+
+p{
+    clear: right;
+    font-size: 12px;
+    color: #b8b8b8;
+    padding-top: 6px;
+}

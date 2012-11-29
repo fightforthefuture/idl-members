@@ -1,6 +1,7 @@
 from urlparse import parse_qs, urlparse
 
 from django.core.cache import cache
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.utils.decorators import method_decorator
@@ -35,45 +36,41 @@ class CustomizeView(TemplateView):
         return context
 
 
-class IncludeView(TemplateView):
-    """
-    A view to generate the IDL JavaScript
-
-    Renders the JavaScript as a Django template, to ensure that only the
-    necessary pieces are included. Additionally, to ensure the smallest
-    possible payload, the results are minified in the template and are
-    gzipped before transmission.
-
-    If possible, response objects are cached based on a hash of the passed
-    configuration, and the entire view is short-circuited by a comparison
-    against this cache.
-    """
+class IncludeMixin(object):
     campaign = None
-    template_name = 'include/js/include.js'
-    context_data = None
     test = None
+    content_type = 'text/javascript'
 
-    @method_decorator(analytics_log)
-    def dispatch(self, *args, **kwargs):
+    def render_to_response(self, context, **kwargs):
         """
-        Default dispatch method, decorated to ensure that each request is
-        logged.
+        If available, returns a cached response. Otherwise, generates and
+        caches a response.
         """
-        return super(IncludeView, self).dispatch(*args, **kwargs)
+        gotten_response = self.get_response()
+        if gotten_response:
+            return gotten_response
+        return self.create_response(context, **kwargs)
 
     def cache_key(self):
         """
         Creates a cache key, based on a hash of the context data (i.e. the
         configuration parameters passed by the implementors).
         """
-        return 'cached_js_%s' % hash(frozenset(self.context_data.items()))
+        return '%s_%s' % (
+            self.cache_key_prefix,
+            hash(frozenset(self.settings().items())),
+        )
 
     def create_response(self, context, **kwargs):
         """
         Creates and caches a response object based on the context data.
         """
-        response = super(IncludeView, self).render_to_response(context,
-            content_type='text/javascript', **kwargs)
+        response = self.response_class(
+            request=self.request,
+            template=self.get_template_names(),
+            context=context,
+            **kwargs
+        )
         response.render()
         cache.set(self.cache_key(), response)
         return response
@@ -87,26 +84,18 @@ class IncludeView(TemplateView):
             return cached
         return None
 
-    def render_to_response(self, context, **kwargs):
-        """
-        If available, returns a cached response. Otherwise, generates and
-        caches a response.
-        """
-        gotten_response = self.get_response()
-        if gotten_response:
-            return gotten_response
-        return self.create_response(context, **kwargs)
-
-    def get(self, request, *args, **kwargs):
-        """
-        If there are no campaigns to display, return an empty response.
-        Otherwise, set context data and return the appropriate response.
-        """
-        if not self.get_campaign() and not self.is_test():
-            return HttpResponse()
-        else:
-            self.context_data = self.get_context_data(params=kwargs)
-            return self.render_to_response(self.context_data, **kwargs)
+    def settings(self):
+        return {
+            'campaign': self.get_campaign(),
+            'is_test': self.is_test(),
+            'language_code': self.request.LANGUAGE_CODE,
+            'variant': self.request.GET.get('variant', 'banner'),
+            'country': self.request.session.get('country_name'),
+            'url': '%s?%s' % (
+                reverse('campaign'),
+                self.request.META['QUERY_STRING'],
+            ),
+        }
 
     def get_campaign(self):
         """
@@ -122,9 +111,9 @@ class IncludeView(TemplateView):
         if self.campaign is not None:
             return self.campaign
 
-        if 'campaign' in self.request.GET:
+        slug = self.request.GET.get('campaign', None)
+        if slug:
             try:
-                slug = self.request.GET['campaign']
                 self.campaign = Campaign.objects.active().get(slug=slug)
             except MultiValueDictKeyError:
                 self.campaign = Campaign.objects.latest()
@@ -149,9 +138,8 @@ class IncludeView(TemplateView):
         2) in cases where that isn't possible, the same querystring parameter
         can be set as the URL of the include itself (i.e. of this view)
         """
-        querystring_test = '_idl_test' in self.request.GET and '1' in \
-            self.request.GET['_idl_test']
         if self.test is None:
+            querystring_test = self.request.GET.get('_idl_test', None) == '1'
             try:
                 referer = urlparse(self.request.META['HTTP_REFERER'])
             except KeyError:
@@ -163,22 +151,50 @@ class IncludeView(TemplateView):
         return self.test
 
     def get_context_data(self, **kwargs):
+        return self.settings()
+
+
+class IframeView(IncludeMixin, TemplateView):
+    cache_key_prefix = 'iframe'
+    content_type = 'text/html'
+
+    def get_template_names(self):
+        return self.get_campaign().template(self.settings()['variant'])
+
+
+class IncludeView(IncludeMixin, TemplateView):
+    """
+    A view to generate the IDL JavaScript
+
+    Renders the JavaScript as a Django template, to ensure that only the
+    necessary pieces are included. Additionally, to ensure the smallest
+    possible payload, the results are minified in the template and are
+    gzipped before transmission.
+
+    If possible, response objects are cached based on a hash of the passed
+    configuration, and the entire view is short-circuited by a comparison
+    against this cache.
+    """
+    template_name = 'include/js/include.js'
+    context_data = None
+    cache_key_prefix = 'js'
+    content_type = 'application/x-javascript'
+
+    @method_decorator(analytics_log)
+    def dispatch(self, *args, **kwargs):
         """
-        Set context data:
-        - The campaign
-        - The URL to include in the <iframe>
-        - The presentational variant to use (e.g. modal, banner)
+        Default dispatch method, decorated to ensure that each request is
+        logged.
         """
-        variant_name = self.request.GET['variant']
-        campaign = self.get_campaign()
-        try:
-            template = self.request.GET['url']
-        except MultiValueDictKeyError:
-            template = campaign.template(variant_name) if campaign else None
-        return {
-            'campaign': campaign,
-            'template': template,
-            'variant': variant_name,
-            'is_secure': self.request.is_secure(),
-            'test': self.is_test()
-        }
+        return super(IncludeView, self).dispatch(*args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        """
+        If there are no campaigns to display, return an empty response.
+        Otherwise, set context data and return the appropriate response.
+        """
+        if not self.get_campaign() and not self.is_test():
+            return HttpResponse()
+        else:
+            self.context_data = self.get_context_data(params=kwargs)
+            return self.render_to_response(self.context_data, **kwargs)

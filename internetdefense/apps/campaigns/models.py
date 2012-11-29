@@ -47,7 +47,7 @@ class Campaign(models.Model):
         Returns the name of the template a campaign should use for the passed
         variant.
         """
-        return 'campaigns/%s.html' % variant
+        return 'campaigns/%s/%s.html' % (self.slug, variant,)
 
 
 def invalidate_cache(sender, instance, created, **kwargs):

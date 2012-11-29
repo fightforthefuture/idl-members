@@ -5,7 +5,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic import TemplateView
 
 from analytics.views import ReachView
-from include.views import CustomizeView, IncludeView
+from include.views import CustomizeView, IframeView, IncludeView
 
 
 admin.autodiscover()
@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^$', CustomizeView.as_view(), name='index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^include/$', IncludeView.as_view()),
+    url(r'^campaign/$', IframeView.as_view(), name='campaign'),
     url(r'^reach/$', ReachView.as_view()),
     url(r'^test/modal/$',
         TemplateView.as_view(template_name="tests/modal.html"),

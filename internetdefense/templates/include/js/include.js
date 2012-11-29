@@ -1,6 +1,5 @@
 {% load minify %}
 
-{% minify_js %}
 
     {% include 'include/js/lib/closure_start.js' %}
     {% include 'include/js/lib/cookies.js' %}
@@ -49,11 +48,11 @@
         }else if(defaults.url){
             ifr_src = defaults.url;
         }else{
-            ifr_src = '{{ SECURE_STATIC_URL }}campaigns/{{ template }}?' + settings;
+            ifr_src = '{{ url }}';
         }
 
 
-        // Creates and appends <iframe> element containing content
+        // Creates and appends iframe element containing content
         ifr = document.createElement('iframe');
         ifr.type = 'text/javascript';
         ifr.async = true;
@@ -70,20 +69,10 @@
                 oldViewport = null,
                 newViewport;
 
-            // Creates and appends <iframe> element containing content
+            // Creates and appends iframe element containing content
             var backdrop = document.createElement('div');
             backdrop.id = 'idl_backdrop';
             body.appendChild(backdrop);
-
-            // Creates and appends element on which the city background lives
-            var city = document.createElement('div');
-            city.id = 'idl_city';
-            body.appendChild(city);
-
-            // Creates and appends element on which the cat background lives
-            var cat = document.createElement('div');
-            cat.id = 'idl_cat';
-            body.appendChild(cat);
 
             // Creates and appends close bytton
             var closeBtn = document.createElement('a');
@@ -101,8 +90,6 @@
                 }
                 ifr.parentNode.removeChild(ifr);
                 backdrop.parentNode.removeChild(backdrop);
-                city.parentNode.removeChild(city);
-                cat.parentNode.removeChild(cat);
                 closeBtn.parentNode.removeChild(closeBtn);
                 if(oldViewport){
                     head.appendChild(oldViewport);
@@ -113,7 +100,6 @@
             };
             addEvent(closeBtn, 'click', closeModal);
             addEvent(backdrop, 'click', closeModal);
-            addEvent(city, 'click', closeModal);
             addEvent(document, 'keyup', function(evt){
                 if(evt.keyCode == 27){
                     closeModal(evt);
@@ -181,4 +167,3 @@
 
     {% include 'include/js/lib/closure_finish.js' %}
 
-{% endminify_js %}

@@ -1,0 +1,187 @@
+@import url(http://fonts.googleapis.com/css?family=Bevan);
+
+html{
+    background: url(bg.png) repeat-x top;
+}
+
+body{
+    font: 12px/1.33 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+a{
+    color: #0f985c;
+}
+
+h1{
+    background: url(logo.png) no-repeat 15px 13px;
+    font: 30px/1.07 'Bevan', cursive;
+    color: #eac704;
+    text-shadow: 1px 1px 0 #000;
+    min-height: 88px;
+    padding: 22px 0 0 120px;
+}
+    h1 strong{
+        color: #FFF;
+        display: block;
+    }
+
+input[type="email"],
+input[type="tel"],
+input[type="text"]{
+    color: #292929;
+    border: 1px solid #afafaf;
+    background: #FFF;
+    padding: 0 15px;
+    width: 130px;
+    margin: 0;
+    outline: 0;
+    font: 18px/2.67 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+    #id_email{
+        width: 504px;
+    }
+    #id_phone{
+        width: 210px;
+    }
+    #id_country{
+        width: 250px;
+    }
+
+input[disabled]{
+    color: #818181;
+}
+button[disabled="disabled"]{
+    cursor: default;
+    background: #999;
+}
+::-webkit-input-placeholder{
+    color: #818181;
+}
+:-moz-placeholder{
+    color: #818181;
+}
+:-ms-input-placeholder{
+    color: #818181;
+}
+
+form{
+    display: block;
+    width: 612px;
+}
+
+.row{
+    padding: 0 32px 12px;
+}
+    .row p{
+        width: 270px;
+        padding: 20px 24px 0 0;
+        font-size: 12px;
+        line-height: 1.25;
+        float: left;
+    }
+
+.row:before,.row:after{content:"\0020";display:block;height:0;overflow:hidden;}
+.row:after{clear:both;}
+.row{zoom:1;}
+
+.field{
+    margin-right: 12px;
+    position: relative;
+    float: left;
+}
+    .field p{
+        font-size: 12px;
+        font-weight: bold;
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        padding: 0;
+    }
+
+button{
+    display: inline-block;
+    background: #14a767;
+    border: 0;
+    color: #FFF;
+    height: 38px;
+    padding: 0 25px;
+    background: -moz-linear-gradient(top, #14a767 0%, #09834e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#14a767), color-stop(100%,#09834e));
+    background: -webkit-linear-gradient(top, #14a767 0%,#09834e 100%);
+    background: -o-linear-gradient(top, #14a767 0%,#09834e 100%);
+    background: -ms-linear-gradient(top, #14a767 0%,#09834e 100%);
+    background: linear-gradient(to bottom, #14a767 0%,#09834e 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14a767', endColorstr='#09834e',GradientType=0 );
+    font: 16px/2.38 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+    #button_email:before{
+        content: url(mail.png);
+        margin-right: 6px;
+        position: relative;
+        top: 3px;
+    }
+    #button_call:before{
+        content: url(phone.png);
+        margin-right: 4px;
+        position: relative;
+        top: 3px;
+    }
+
+body.us #call,
+body.us #phone{
+    display: none;
+}
+body.us #send{
+    margin-top: -62px;
+    float: right;
+}
+    body.us #button_email{
+        padding: 0;
+        text-align: center;
+        font-size: 18px;
+        line-height: 2.84;
+        height: 50px;
+        width: 120px;
+    }
+    body.us #button_thanks{
+        padding: 0;
+        text-align: center;
+        font-size: 18px;
+        line-height: 2.84;
+        height: 50px;
+        width: 120px;
+    }
+body.us #id_country{
+    width: 372px;
+}
+body.us
+body.us .row p{
+    width: auto;
+    clear: both;
+    float: none;
+}
+
+input.error{
+    border-color: red;
+    color: red;
+}
+    input.error::-webkit-input-placeholder {
+        color: red;
+    }
+    input.error:-moz-placeholder {
+        color: red;
+    }
+    input.error:-ms-input-placeholder {
+        color: red;
+    }
+
+p{
+    margin: 0;
+    color: #111;
+    font-size: 16px;
+    line-height: 1.25;
+    padding: 20px 32px;
+}

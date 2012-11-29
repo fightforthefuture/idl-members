@@ -1,0 +1,63 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% comment %}Translators: Page Title{% endcomment %}
+        <title>{% trans "Internet Coup" %}</title>
+        <link href="{% static 'css/src/reset.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'campaigns/itu/modal/modal.css' %}" rel="stylesheet" type="text/css" />
+    </head>
+    <body{% if session.country_code == 'US' %} class="us"{% endif %}>
+        <h1>{% trans "On Dec 3rd" %} <strong>{% trans "Stop the Internet Coup" %}</strong></h1>
+        <p>Only governments get a vote at WCIT, so we need people from all around the world to demand that our leaders keep the internet open.</p>
+        <form action="https://nt.salsalabs.com/save" id="action" class="fftf">
+            <input type="hidden" name="object" value="supporter"/>
+            <input type="hidden" name="tag" value="dictatorshipday"/>
+            {% comment %}
+            We're going to let JavaScript fill these in, (1) because we know 
+            the user will have JavaScript enabled (or else the embed code 
+            wouldn't have ran in the first place, (2) so we can cache the view.
+            {% endcomment %}
+            <input type="hidden" name="ip" id="signup_ip" value="" />
+            <input type="hidden" name="user_agent" id="user_agent" value="" />
+
+            <input type="hidden" id="trigger" name="email_trigger_KEYS" value="7" />
+            <input type="hidden" name="organization_KEY" value="501"/>
+            <input type="hidden" name="redirect" value="http://www.internetcoup.org/thanks"> 
+            <div class="row">
+                <div class="field" id="email">
+                    {% comment %}Translators: Placeholder for email field{% endcomment %}
+                    <input id="id_email" type="email" name="Email" placeholder="{% trans "Email" %}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="field" id="country">
+                    <p class="help"><a href="http://www.internetcoup.org" target="_blank">{% trans "I don't live here" %}</a></p>
+                    <input id="id_country" type="tel" name="CountryName" value="{% trans session.country_name %}" disabled="disabled" />
+                    <input type="hidden" name="Country" value="{{ session.country_code }}" />
+                </div>
+                <div class="field" id="phone">
+                    {% comment %}Translators: Placeholder for phone number field{% endcomment %}
+                    <input id="id_phone" type="tel" name="Phone" placeholder="{% trans "Phone" %}" />
+                </div>
+            </div>
+            <div class="row">
+                <p>{% trans "Fight for the Future may contact you about related campaigns." %} <a href="http://www.]fightforthefuture.org/privacy" target="_blank">{% trans "Privacy Policy" %}</a></p>
+                <div class="field" id="send">
+                    {% comment %}Translators: Email button text (use verb){% endcomment %}
+                    <button type="submit" class="bebas btn" id="button_email">{% trans "Email" %}</button>
+                </div>
+                <div class="field" id="call">
+                    {% comment %}Translators: Call button text (use verb){% endcomment %}
+                    <button type="submit" class="bebas btn" id="button_call">{% trans "Call" %}</button>
+                </div>
+            </div>
+        </form>
+        <script src="{% static 'campaigns/itu/modal/jquery.js' %}" type="text/javascript"></script>
+        <script src="{% static 'campaigns/itu/modal/script.js' %}" type="text/javascript"></script>
+    </body>
+</html>
