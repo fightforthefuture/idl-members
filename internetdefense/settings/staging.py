@@ -13,7 +13,7 @@ from settings.base import INSTALLED_APPS
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-SITE_ID = 2
+SITE_ID = 1
 
 INSTALLED_APPS = INSTALLED_APPS + [
     'gunicorn',
