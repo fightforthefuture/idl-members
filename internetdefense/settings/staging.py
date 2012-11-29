@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = 'internetdefenseleague.staging'
+AWS_STORAGE_BUCKET_NAME = 'idl-staging'
 AWS_QUERYSTRING_AUTH = False
 AWS_HEADERS = {
     'Cache-Control': 'max-age=2592000',
@@ -34,7 +34,7 @@ AWS_HEADERS = {
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https',)
 
-STATIC_URL = 'http://internetdefenseleague.staging.s3.amazonaws.com/'
+STATIC_URL = 'http://idl-staging.s3.amazonaws.com/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
