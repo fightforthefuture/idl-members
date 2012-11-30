@@ -17,7 +17,7 @@
                     <input type="radio" name="variant" id="variant_{{ variant.slug }}" value="{{ variant.slug }}" {% if forloop.first %}checked="checked"{% endif %} />
                     <label for="variant_{{ variant.slug }}" class="montserrat">{{ variant.name }}</label>
                 </span>
-                <img src="{{ SECURE_STATIC_URL }}img/campaigns/{{ variant.slug }}.png" alt="{{ variant.name }} Screenshot" />
+                <img src="{{ SECURE_STATIC_URL }}img/{{ variant.slug }}.png" alt="{{ variant.name }} Screenshot" />
             </div>
             {% if not forloop.last %}
                 <span class="circle">OR</span>
