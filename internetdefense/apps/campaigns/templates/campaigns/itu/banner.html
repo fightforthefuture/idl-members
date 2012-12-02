@@ -12,7 +12,10 @@
         <link href="{% static 'campaigns/itu/banner/banner.css' %}" rel="stylesheet" type="text/css" />
     </head>
     <body{% if session.country_code == 'US' %} class="us"{% endif %}>
-        <h1>{% trans "On Dec 3rd" %} <strong>{% trans "Stop the Internet Coup" %}</strong></h1>
+        <div class="header">
+            <h1>{% trans "This Week:" %} <strong>{% trans "Stop the Internet Coup" %}</strong></h1>
+            <p>{% trans "The world's governments are deciding whether to give the a secretive, top-down institution called the ITU control over the Internet. Tell them it's a bad idea." %} <a href="">{% trans "Learn more" %}</a></p>
+        </div>
         <form action="https://nt.salsalabs.com/save" id="action" class="fftf">
             <input type="hidden" name="object" value="supporter"/>
             <input type="hidden" name="tag" value="dictatorshipday"/>
@@ -35,11 +38,6 @@
                 {% comment %}Translators: Placeholder for phone number field{% endcomment %}
                 <input id="id_phone" type="tel" name="Phone" placeholder="{% trans "Phone" %}" />
             </div>
-            <div class="field" id="country">
-                <p class="help"><a href="http://www.internetcoup.org" target="_blank">{% trans "I don't live here" %}</a></p>
-                <input id="id_country" type="tel" name="CountryName" value="{% trans session.country_name %}" disabled="disabled" />
-                <input type="hidden" name="Country" value="{{ session.country_code }}" />
-            </div>
             <div class="field" id="send">
                 {% comment %}Translators: Email button text (use verb){% endcomment %}
                 <button type="submit" class="bebas btn" id="button_email">{% trans "Email" %}</button>
@@ -48,8 +46,12 @@
                 {% comment %}Translators: Call button text (use verb){% endcomment %}
                 <button type="submit" class="bebas btn" id="button_call">{% trans "Call" %}</button>
             </div>
+            <div class="field" id="country">
+                <p class="help">{% trans "Country:" %} {% trans session.country_name %} <a href="http://www.internetcoup.org" target="_blank">{% trans "Change" %}</a></p>
+                <input type="hidden" name="Country" value="{{ session.country_code }}" />
+            </div>
+            <p id="privacy"><a href="http://www.fightforthefuture.org/privacy" target="_blank">{% trans "Privacy Policy" %}</a></p>
         </form>
-        <p>{% trans "Fight for the Future may contact you about related campaigns." %} <a href="http://www.fightforthefuture.org/privacy" target="_blank">{% trans "Privacy Policy" %}</a></p>
         <script src="{% static 'campaigns/itu/banner/jquery.js' %}" type="text/javascript"></script>
         <script src="{% static 'campaigns/itu/banner/script.js' %}" type="text/javascript"></script>
     </body>

@@ -2,6 +2,7 @@
 
 html{
     background: url(bg.png) repeat-x bottom;
+    height: 90px;
 }
 
 body{
@@ -12,22 +13,28 @@ body{
 }
 
 a{
-    color: #0f985c;
+    color: #23c981;
+}
+
+.header{
+    float: left;
+    width: 480px;
+    background: url(logo.png) no-repeat left;
+    min-height: 72px;
+    padding: 18px 0 0 70px;
+}
+
+.header p{
+    color: #DDD;
 }
 
 h1{
-    background: url(logo.png) no-repeat left;
-    font: 18px/1.17 'Bevan', cursive;
+    font: 16px/1 'Bevan', cursive;
     color: #eac704;
     text-shadow: 1px 1px 0 #000;
-    min-height: 68px;
-    padding: 22px 0 0 70px;
-    float: left;
-    width: 230px;
 }
     h1 strong{
         color: #FFF;
-        display: block;
     }
 
 input[type="email"],
@@ -40,13 +47,13 @@ input[type="text"]{
     width: 128px;
     margin: 0;
     outline: 0;
-    font: 14px/1.86 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font: 13px/1.85 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
     #id_email{
-        width: 158px;
+        width: 125px;
     }
     #id_phone{
-        width: 118px;
+        width: 100px;
     }
     #id_country{
             width: 118px;
@@ -72,8 +79,8 @@ button[disabled="disabled"]{
 form{
     float: right;
     display: block;
-    width: 715px;
-    padding-top: 7px;
+    width: 465px;
+    margin-top: 19px;
 }
 
 .field{
@@ -81,23 +88,24 @@ form{
     margin-right: 5px;
     position: relative;
     height: 30px;
-    padding-top: 18px;
 }
-    .field p{
-        font-size: 11px;
-        text-align: right;
-        font-weight: bold;
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 0;
-    }
     .field a{
-        color: #AAA;
+        color: #FFF;
         line-height: 10px;
     }
         .field a:hover{
             color: #CCC;
+        }
+    #country{
+        clear: left;
+        width: 274px;
+    }
+    #privacy{
+        float: left;
+    }
+        #privacy a{
+            color: #FFF;
+            font-weight: bold;
         }
 
 button{
@@ -105,23 +113,20 @@ button{
     background: #14a767;
     border: 0;
     color: #FFF;
-    height: 28px;
-    padding: 2px 20px 0;
+    height: 26px;
+    padding: 0px 10px 0;
     background: -moz-linear-gradient(top, #14a767 0%, #09834e 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#14a767), color-stop(100%,#09834e));
     background: -webkit-linear-gradient(top, #14a767 0%,#09834e 100%);
     background: -o-linear-gradient(top, #14a767 0%,#09834e 100%);
     background: -ms-linear-gradient(top, #14a767 0%,#09834e 100%);
-    background: linear-gradient(to bottom, #14a767 0%,#09834e 100%);
+    background: linear-gradient(top, #14a767 0%,#09834e 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14a767', endColorstr='#09834e',GradientType=0 );
     font: 14px/1.72 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
-    #button_thanks{
-        width: 95px;
-    }
     #button_email:before{
         content: url(mail.png);
         margin-right: 4px;
@@ -135,25 +140,30 @@ button{
         top: 3px;
     }
 
-body.us{
-    width: 850px;
-}
-body.us form{
-    width: 550px;
-}
-body.us #call,
-body.us #phone{
-    display: none;
-}
-body.us #id_email{
-    width: 208px;
-}
-body.us #id_country{
-    width: 178px;
-}
-body.us .field{
-    margin-right: 8px;
-}
+
+/* Adjustments for the United States (who should not have the option to call)
+   their delegates, since they are already opposed to expanding the ITU's power */
+body.us{}
+    body.us .header{
+        padding-right: 50px;
+    }
+    body.us form{
+        width: 415px;
+    }
+    body.us #call,
+    body.us #phone{
+        display: none;
+    }
+    body.us #id_email{
+        width: 252px;
+    }
+    body.us #button_email{
+        width: 90px;
+    }
+    body.us #privacy{
+        width: 90px;
+    }
+
 
 input.error{
     border-color: red;
@@ -171,7 +181,6 @@ input.error{
 
 
 p{
-    clear: right;
     font-size: 12px;
     color: #b8b8b8;
     padding-top: 6px;
