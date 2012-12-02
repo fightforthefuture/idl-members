@@ -69,6 +69,7 @@
                     'organizer': $('[name="organizer"]').val()
                 });
                 $button.text('Thanks!').attr('id', 'button_thanks');
+                window.open('http://www.internetcoup.org/?email_action', 'itu_email');
             }else{
                 $button.enableButton();
             }
@@ -104,7 +105,7 @@
                     'country': $('[name="Country"]').val()
                 });
                 $button.text('Thanks!').attr('id', 'button_thanks');
-                $('#call_modal').show();
+                window.open('http://www.internetcoup.org/?call_action', 'itu_call');
             }else{
                 $button.enableButton();
             }
