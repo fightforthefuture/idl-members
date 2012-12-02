@@ -48,6 +48,7 @@ input[type="text"]{
     margin: 0;
     outline: 0;
     font: 13px/1.85 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    min-height: 25px;
 }
     #id_email{
         width: 125px;

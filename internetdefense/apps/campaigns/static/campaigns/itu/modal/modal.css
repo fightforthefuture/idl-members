@@ -36,6 +36,7 @@ input[type="text"]{
     margin: 0;
     outline: 0;
     font: 18px/2.67 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    min-height: 50px;
 }
     #id_email{
         width: 504px;

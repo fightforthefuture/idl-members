@@ -1,6 +1,7 @@
 #idl_alert{
     border: 0;
     position: fixed;
+    text-decoration: none;
 }
     .idl_ie_quirks #idl_alert{
         position: absolute;
