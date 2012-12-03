@@ -66,10 +66,7 @@ class CityMiddleware(object):
 
                 # For local testing
                 if ip in ['127.0.0.1', '10.0.1.3']:
-                    ip = '96.41.253.160'
-
-                import pdb
-                pdb.set_trace()
+                    ip = '115.187.74.78'
 
                 record = self.gip.record_by_addr(ip)
                 for field in settings.GEOIP_SESSION_FIELDS:

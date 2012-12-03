@@ -45,6 +45,7 @@ html.idl_modal #idl_alert{
     z-index: 2147483646;
     background: #000;
     opacity: 0.75;
+    filter: alpha(opacity=75);
 }
     .idl_ie_quirks #idl_backdrop{
         position: absolute;
@@ -61,21 +62,15 @@ html.idl_modal #idl_alert{
     margin: -190px 0 0 269px;
     z-index: 2147483647;
     width: 20px;
-    height: 1px;
+    height: 20px;
     display: block;
-    font: bold 11px/1 'Helvetica Neue', 'Helvetica', sans-serif;
+    font: bold 20px/1 'Helvetica Neue', 'Helvetica', sans-serif;
     overflow: hidden;
-    text-indent: 999em;
-    padding-top: 19px;
+    text-align: center;
+    color: #FFF;
+    text-decoration: none;
 }
     .idl_ie_quirks #idl_close{
+        zoom: 1;
         position: absolute;
-    }
-    #idl_close:after{
-        content: '\\D7';
-        color: #FFF;
-        position: absolute;
-        top: -4px;
-        right: 2px;
-        font-size: 24px;
     }

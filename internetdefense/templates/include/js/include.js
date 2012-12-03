@@ -78,7 +78,7 @@
             var closeBtn = document.createElement('a');
             closeBtn.id = 'idl_close';
             closeBtn.href = '#';
-            closeBtn.innerHTML = 'Return to the Website'
+            closeBtn.innerHTML = 'x'
             body.appendChild(closeBtn);
 
             // Close modal and set opt-out cookie on click of close button,

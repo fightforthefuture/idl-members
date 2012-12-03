@@ -29,6 +29,8 @@
 
     $(function(){
 
+        Placeholders.init();
+
         $(document).delegate('#action', 'submit', function(evt){
             evt.preventDefault();
         });
