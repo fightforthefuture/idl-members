@@ -18,7 +18,7 @@ TEMPLATE_DEBUG = True
 
 SITE_ID = 1
 
-INCLUDE_URL = '127.0.0.1:8000/include/'
+INCLUDE_URL = '10.0.1.3:8000/include/'
 STATIC_URL = '/static/'
 
 
@@ -29,7 +29,7 @@ DEBUG_TOOLBAR_CONFIG = {
     'INTERCEPT_REDIRECTS': False,
     'SHOW_TOOLBAR_CALLBACK': show_toolbar,
 }
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1', '10.0.1.3',)
 MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES + [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]

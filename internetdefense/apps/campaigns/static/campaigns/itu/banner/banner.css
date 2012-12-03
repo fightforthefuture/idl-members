@@ -180,6 +180,10 @@ input.error{
         color: red;
     }
 
+.nocountry #country{
+    display: none;
+}
+
 
 p{
     font-size: 12px;

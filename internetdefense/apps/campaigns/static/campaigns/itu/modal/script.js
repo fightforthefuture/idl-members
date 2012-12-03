@@ -36,7 +36,9 @@
         $(document).delegate('#button_email', 'click', function(evt){
             evt.preventDefault();
             var $button = $(this),
-                $email = $('#id_email'),
+                $email = $('[name="Email"]'),
+                $phone = $('[name="Phone"]'),
+                $country = $('[name="Country"]'),
                 hasError = false;
 
             if($button.is(':disabled')){
@@ -54,22 +56,27 @@
             }
 
             if(!hasError){
-                var responder = $('[name="Country"]').find('option:selected').attr('data-response') || 209;
-                $.get('https://nt.salsalabs.com/save', {
-                    'object': $('[name="object"]').val(),
-                    'tag': $('[name="tag"]').val(),
-                    'ip': $('[name="ip"]').val(),
-                    'user_agent': $('[user_agent="object"]').val(),
-                    'email_trigger_KEYS': responder,
-                    'organization_KEY': $('[name="organization_KEY"]').val(),
-                    'redirect': $('[name="redirect"]').val(),
-                    'Email': $('[name="Email"]').val(),
-                    'Phone': $('[name="Phone"]').val(),
-                    'Country': $('[name="Country"]').val(),
-                    'organizer': $('[name="organizer"]').val()
-                });
                 $button.text('Thanks!').attr('id', 'button_thanks');
-                window.open('http://www.internetcoup.org/?email_action', 'itu_email');
+                if($country.val() !== ''){
+                    var responder = responderMap.hasOwnProperty($country.val()) ? parseInt(responderMap[$country.val()], 10) : 209;
+                    $.get('https://nt.salsalabs.com/save', {
+                        'object': $('[name="object"]').val(),
+                        'tag': $('[name="tag"]').val(),
+                        'ip': $('[name="ip"]').val(),
+                        'user_agent': $('[user_agent="object"]').val(),
+                        'email_trigger_KEYS': responder,
+                        'organization_KEY': $('[name="organization_KEY"]').val(),
+                        'redirect': $('[name="redirect"]').val(),
+                        'Email': $('[name="Email"]').val(),
+                        'Phone': $('[name="Phone"]').val(),
+                        'Country': $('[name="Country"]').val(),
+                        'organizer': $('[name="organizer"]').val()
+                    });
+                    window.open('http://www.internetcoup.org/?email_action', 'itu_email');
+                }else{
+                    window.open('http://www.internetcoup.org/?no_country&Phone=' + encodeURIComponent($phone.val()) + '&Email=' + encodeURIComponent($email.val()), 'itu_call');
+                }
+
             }else{
                 $button.enableButton();
             }
@@ -81,8 +88,9 @@
         $(document).delegate('#button_call', 'click', function(evt){
             evt.preventDefault();
             var $button = $(this),
-                $phone = $('#id_phone'),
-                $country = $('#country'),
+                $email = $('[name="Email"]'),
+                $phone = $('[name="Phone"]'),
+                $country = $('[name="Country"]'),
                 hasError = false;
 
             if($button.is(':disabled')){
@@ -100,12 +108,16 @@
             }
 
             if(!hasError){
-                $.post('http://www.internetcoup.org/en/calltool/', {
-                    'number': $('[name="Phone"]').val(),
-                    'country': $('[name="Country"]').val()
-                });
                 $button.text('Thanks!').attr('id', 'button_thanks');
-                window.open('http://www.internetcoup.org/?call_action', 'itu_call');
+                if($country.val() !== ''){
+                    $.post('http://www.internetcoup.org/en/calltool/', {
+                        'number': $('[name="Phone"]').val(),
+                        'country': $('[name="Country"]').val()
+                    });
+                    window.open('http://www.internetcoup.org/?call_action', 'itu_call');
+                }else{
+                    window.open('http://www.internetcoup.org/?no_country&Phone=' + encodeURIComponent($phone.val()) + '&Email=' + encodeURIComponent($email.val()), 'itu_call');
+                }
             }else{
                 $button.enableButton();
             }

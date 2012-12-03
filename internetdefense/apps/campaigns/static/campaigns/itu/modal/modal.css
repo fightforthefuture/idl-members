@@ -186,3 +186,24 @@ p{
     line-height: 1.25;
     padding: 20px 32px;
 }
+
+.nocountry #email-row{
+    float: left;
+    width: 262px;
+}
+.nocountry #id_email{
+    width: 252px;
+}
+.nocountry #country-row{
+    float: left;
+    width: 223px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.nocountry #id_phone{
+    float: left;
+    width: 192px;
+}
+.nocountry .row p{
+    padding-top: 0;
+}
