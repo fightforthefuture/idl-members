@@ -15,3 +15,9 @@ def secure_static_url(request):
     return {
         'SECURE_STATIC_URL': urlunparse(static_url)
     }
+
+
+def include_domain(request):
+    return {
+        'INCLUDE_DOMAIN': settings.INCLUDE_DOMAIN
+    }

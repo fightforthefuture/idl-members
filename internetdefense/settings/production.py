@@ -38,4 +38,5 @@ STATIC_URL = 'http://internetdefenseleague.s3.amazonaws.com/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-INCLUDE_URL = 'members.internetdefenseleague.org/include/'
+INCLUDE_DOMAIN = 'members.internetdefenseleague.org'
+INCLUDE_URL = INCLUDE_DOMAIN + '/include/'

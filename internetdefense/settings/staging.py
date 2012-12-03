@@ -38,4 +38,5 @@ STATIC_URL = 'http://idl-staging.s3.amazonaws.com/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
-INCLUDE_URL = 'idl-staging.herokuapp.com/include/'
+INCLUDE_DOMAIN = 'idl-staging.herokuapp.com'
+INCLUDE_URL = INCLUDE_DOMAIN + '/include/'

@@ -48,7 +48,7 @@
         }else if(defaults.url){
             ifr_src = defaults.url;
         }else{
-            ifr_src = '{{ url }}';
+            ifr_src = '//{{ INCLUDE_DOMAIN }}{{ url }}';
         }
 
 

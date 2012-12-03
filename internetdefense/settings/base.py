@@ -88,6 +88,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.contrib.messages.context_processors.messages',
     'include.context_processors.include_url',
     'internetdefense.context_processors.secure_static_url',
+    'internetdefense.context_processors.include_domain',
     'ip2geo.context_processors.add_session',
 ]
 
