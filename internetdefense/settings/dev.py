@@ -18,7 +18,7 @@ TEMPLATE_DEBUG = True
 
 SITE_ID = 1
 
-INCLUDE_DOMAIN = '10.0.1.3:8000'
+INCLUDE_DOMAIN = 'localhost:8000'
 INCLUDE_URL = INCLUDE_DOMAIN + '/include/'
 
 STATIC_URL = '/static/'
