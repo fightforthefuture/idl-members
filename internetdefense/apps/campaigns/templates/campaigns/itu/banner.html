@@ -20,7 +20,7 @@
     <body{% if session.country_code == 'US' %} class="us"{% endif %}{% if not session.country_code %} class="nocountry"{% endif %}>
         <div class="header">
             <h1>{% trans "This Week:" %} <strong>{% trans "Stop the Internet Coup" %}</strong></h1>
-            <p>{% trans "The world's governments are deciding whether to give the a secretive, top-down institution called the ITU control over the Internet. Tell them it's a bad idea." %} <a href="">{% trans "Learn more" %}</a></p>
+            <p>{% trans "The world's governments are deciding whether to give the a secretive, top-down institution called the ITU control over the Internet. Tell them it's a bad idea." %} <a href="http://internetcoup.org" target="page">{% trans "Learn more" %}</a></p>
         </div>
         <form action="https://nt.salsalabs.com/save" id="action" class="fftf">
             <input type="hidden" name="object" value="supporter"/>
