@@ -97,7 +97,7 @@ class IncludeMixin(object):
             ),
         }
 
-    def get_campaign(self):
+    def get_campaign(self, include_inactive=False):
         """
         If campaign has already been determined in this view instance (i.e. in
         the same request/response cycle), return that.
@@ -118,7 +118,10 @@ class IncludeMixin(object):
             except MultiValueDictKeyError:
                 self.campaign = Campaign.objects.latest()
             except Campaign.DoesNotExist:
-                self.campaign = Campaign.objects.none()
+                if include_inactive:
+                    self.campaign = Campaign.objects.get(slug=slug)
+                else:
+                    self.campaign = Campaign.objects.none()
         else:
             self.campaign = Campaign.objects.latest()
 
@@ -159,7 +162,7 @@ class IframeView(IncludeMixin, TemplateView):
     content_type = 'text/html'
 
     def get_template_names(self):
-        return self.get_campaign().template(self.settings()['variant'])
+        return self.get_campaign(include_inactive=True).template(self.settings()['variant'])
 
 
 class IncludeView(IncludeMixin, TemplateView):
