@@ -160,7 +160,7 @@ class IframeView(IncludeMixin, TemplateView):
 
     def get_template_names(self):
         slug = self.request.GET.get('campaign', None)
-        campaign = self.get_campaign(include_inactive=True)
+        campaign = self.get_campaign()
         if not campaign and slug:
             campaign = Campaign.objects.get(slug=slug)
         return campaign.template(self.settings()['variant'])
