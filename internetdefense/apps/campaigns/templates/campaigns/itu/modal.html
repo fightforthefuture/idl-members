@@ -19,7 +19,7 @@
     </head>
     <body{% if session.country_code == 'US' %} class="us"{% endif %}{% if not session.country_code %} class="nocountry"{% endif %}>
         <h1>{% trans "This Week" %} <strong>{% trans "Stop the Internet Coup" %}</strong></h1>
-        <p>Right now, the world&#39;s governments are deciding whether to give a secretive, top-down institution called the ITU control over the Internet. Tell them it&#39;s a bad idea. <a href="http://www.internetcoup.org/" target="_blank">Learn more</a>.</p>
+        <p>{% blocktrans %}They're meeting right now. Contact your leaders! Tell them: "I don't trust the world's governments to run the global Internet. Don't give the ITU any more power."{% endblocktrans %} <a href="http://www.internetcoup.org/" target="_blank">{% trans "Learn more" %}</a>.</p>
         <form action="https://nt.salsalabs.com/save" id="action" class="fftf">
             <input type="hidden" name="object" value="supporter"/>
             <input type="hidden" name="tag" value="dictatorshipday"/>
