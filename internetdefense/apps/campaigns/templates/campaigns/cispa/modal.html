@@ -1,0 +1,262 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6"> <![endif]-->
+<!--[if IE 7]> <html class="ie7">  <![endif]-->
+<!--[if IE 8]> <html class="ie8">  <![endif]-->
+<!--[if IE 9]> <html class="ie9">  <![endif]-->
+<!--[if gt IE 9]><!-->
+<html> 
+<!--<![endif]-->
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% comment %}Translators: Page Title{% endcomment %}
+        <title>{% trans "Internet Coup" %}</title>
+        <link href="{% static 'css/src/reset.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'campaigns/itu/modal/modal.css' %}" rel="stylesheet" type="text/css" />
+    </head>
+    <body{% if session.country_code == 'US' %} class="us"{% endif %}{% if not session.country_code %} class="nocountry"{% endif %}>
+        <h1>{% trans "This Week" %} <strong>{% trans "Stop the Internet Coup" %}</strong></h1>
+        <p>{% blocktrans %}This is a CISPA test{% endblocktrans %} <a href="http://www.internetcoup.org/" target="_blank">{% trans "Learn more" %}</a>.</p>
+        <form action="https://nt.salsalabs.com/save" id="action" class="fftf">
+            <input type="hidden" name="object" value="supporter"/>
+            <input type="hidden" name="tag" value="dictatorshipday"/>
+            {% comment %}
+            We're going to let JavaScript fill these in, (1) because we know 
+            the user will have JavaScript enabled (or else the embed code 
+            wouldn't have ran in the first place, (2) so we can cache the view.
+            {% endcomment %}
+            <input type="hidden" name="ip" id="signup_ip" value="" />
+            <input type="hidden" name="user_agent" id="user_agent" value="" />
+
+            <input type="hidden" id="trigger" name="email_trigger_KEYS" value="7" />
+            <input type="hidden" name="organization_KEY" value="501"/>
+            <input type="hidden" name="redirect" value="http://www.internetcoup.org/thanks"> 
+            <div class="row" id="email-row">
+                <div class="field" id="email">
+                    {% comment %}Translators: Placeholder for email field{% endcomment %}
+                    <input id="id_email" type="email" name="Email" placeholder="{% trans "Email" %}" />
+                </div>
+            </div>
+            <div class="row" id="country-row">
+                <div class="field" id="country">
+                    <p class="help"><a href="http://www.internetcoup.org" target="_blank">{% trans "I don't live here" %}</a></p>
+                    {% if session.country_name %}
+                    <input id="id_country" type="tel" name="CountryName" value="{% trans session.country_name %}" disabled="disabled" />
+                    {% endif %}
+                    <input type="hidden" name="Country" value="{{ session.country_code }}" />
+                </div>
+                <div class="field" id="phone">
+                    {% comment %}Translators: Placeholder for phone number field{% endcomment %}
+                    <input id="id_phone" type="tel" name="Phone" placeholder="{% trans "Phone" %}" />
+                </div>
+            </div>
+            <div class="row">
+                <p>{% trans "Fight for the Future may contact you about related campaigns." %} <a href="http://www.]fightforthefuture.org/privacy" target="_blank">{% trans "Privacy Policy" %}</a></p>
+                <div class="field" id="send">
+                    {% comment %}Translators: Email button text (use verb){% endcomment %}
+                    <button type="submit" class="bebas btn" id="button_email">{% trans "Email" %}</button>
+                </div>
+                <div class="field" id="call">
+                    {% comment %}Translators: Call button text (use verb){% endcomment %}
+                    <button type="submit" class="bebas btn" id="button_call">{% trans "Call" %}</button>
+                </div>
+            </div>
+        </form>
+        <script src="{% static 'campaigns/itu/modal/jquery.js' %}" type="text/javascript"></script>
+        <script src="{% static 'campaigns/itu/modal/placeholder.js' %}" type="text/javascript"></script>
+        <script>
+            window.responderMap = {
+                'AF': '22',
+                'AL': '23',
+                'DZ': '25',
+                'AD': '26',
+                'AO': '27',
+                'AG': '28',
+                'AR': '29',
+                'AM': '30',
+                'AU': '31',
+                'AT': '32',
+                'AZ': '33',
+                'BS': '34',
+                'BH': '35',
+                'BD': '36',
+                'BB': '37',
+                'BY': '38',
+                'BE': '39',
+                'BZ': '40',
+                'BJ': '41',
+                'BT': '42',
+                'BO': '43',
+                'BA': '44',
+                'BW': '45',
+                'BR': '46',
+                'BN': '47',
+                'BG': '48',
+                'BF': '49',
+                'BI': '50',
+                'KH': '51',
+                'CM': '52',
+                'CA': '53',
+                'CV': '54',
+                'CF': '55',
+                'TD': '56',
+                'CL': '57',
+                'CN': '58',
+                'CO': '59',
+                'KM': '60',
+                'CG': '61',
+                'CD': '61',
+                'CR': '62',
+                'CI': '63',
+                'HR': '64',
+                'CU': '65',
+                'CY': '66',
+                'CZ': '67',
+                'DK': '70',
+                'DJ': '71',
+                'DM': '72',
+                'DO': '73',
+                'EC': '74',
+                'EG': '75',
+                'SV': '76',
+                'GQ': '77',
+                'ER': '78',
+                'EE': '79',
+                'ET': '80',
+                'FJ': '81',
+                'FI': '82',
+                'FR': '83',
+                'GA': '84',
+                'GM': '85',
+                'GE': '86',
+                'DE': '87',
+                'GH': '88',
+                'GR': '89',
+                'GD': '90',
+                'GT': '91',
+                'GN': '92',
+                'GW': '93',
+                'GY': '94',
+                'HT': '95',
+                'HN': '96',
+                'HU': '97',
+                'IS': '98',
+                'IN': '99',
+                'ID': '100',
+                'IR': '101',
+                'IQ': '102',
+                'IE': '103',
+                'IL': '104',
+                'IT': '105',
+                'JM': '106',
+                'JP': '107',
+                'JO': '109',
+                'KZ': '110',
+                'KE': '111',
+                'KI': '112',
+                'KR': '113',
+                'KW': '114',
+                'KG': '115',
+                'LA': '116',
+                'LV': '117',
+                'LB': '118',
+                'LS': '119',
+                'LR': '122',
+                'LI': '124',
+                'LT': '125',
+                'LU': '126',
+                'MG': '127',
+                'MW': '128',
+                'MY': '129',
+                'MV': '130',
+                'ML': '131',
+                'MH': '133',
+                'MR': '134',
+                'MU': '135',
+                'MX': '136',
+                'FM': '137',
+                'MD': '138',
+                'MC': '139',
+                'MN': '140',
+                'ME': '141',
+                'MA': '142',
+                'MZ': '143',
+                'MM': '144',
+                'NA': '145',
+                'NR': '146',
+                'NP': '147',
+                'NL': '148',
+                'NZ': '149',
+                'NI': '150',
+                'NE': '151',
+                'NG': '152',
+                'NO': '153',
+                'OM': '154',
+                'PK': '155',
+                'PA': '156',
+                'PG': '157',
+                'PY': '158',
+                'PE': '159',
+                'PH': '160',
+                'PL': '161',
+                'PT': '162',
+                'PR': '219',
+                'QA': '163',
+                'RO': '164',
+                'RU': '165',
+                'RW': '16',
+                'KN': '167',
+                'LC': '168',
+                'VC': '169',
+                'WS': '170',
+                'SM': '171',
+                'ST': '172',
+                'SA': '173',
+                'SN': '174',
+                'RS': '175',
+                'SC': '176',
+                'SL': '177',
+                'SG': '178',
+                'SK': '179',
+                'SI': '180',
+                'SB': '181',
+                'SO': '182',
+                'ZA': '183',
+                'ES': '185',
+                'LK': '186',
+                'SD': '187',
+                'SR': '188',
+                'SZ': '189',
+                'SE': '190',
+                'CH': '191',
+                'SY': '192',
+                'TJ': '193',
+                'TZ': '194',
+                'TH': '195',
+                'TO': '199',
+                'TT': '200',
+                'TN': '201',
+                'TR': '202',
+                'TM': '203',
+                'TV': '204',
+                'UG': '205',
+                'UA': '206',
+                'AE': '207',
+                'GB': '208',
+                'US': '219',
+                'UY': '210',
+                'UZ': '211',
+                'VU': '212',
+                'VE': '213',
+                'VN': '214',
+                'YE': '215',
+                'ZM': '216',
+                'ZW': '217'
+            };
+        </script>
+        <script src="{% static 'campaigns/itu/modal/script.js' %}" type="text/javascript"></script>
+    </body>
+</html>
