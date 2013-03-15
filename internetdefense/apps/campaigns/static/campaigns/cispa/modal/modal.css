@@ -1,32 +1,66 @@
-@import url(http://fonts.googleapis.com/css?family=Bevan);
+@font-face {
+    font-family: 'Russo One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Russo One'), local('RussoOne-Regular'), url(russo_one.woff) format('woff');
+}
 
 html{
-    background: url(bg.png) repeat-x top;
+    background-image: url(bg.png);
 }
 
 body{
     font: 12px/1.33 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 }
 
-a{
-    color: #0f985c;
+#header {
+    height: 180px;
+    width: 600px;
+    background: url(cispa.png) no-repeat left;
+    padding: 0 0 0 350px;
 }
 
-h1{
-    background: url(logo.png) no-repeat 15px 13px;
-    font: 30px/1.07 'Bevan', cursive;
-    color: #eac704;
+h1 {
+    color: #FFFFFF;
+    font-family: 'Russo One';
+    font-size: 58px;
     text-shadow: 1px 1px 0 #000;
-    min-height: 88px;
-    padding: 22px 0 0 120px;
+    padding-top: 108px;
+    line-height: 100%;
 }
-    h1 strong{
-        color: #FFF;
-        display: block;
-    }
 
-input[type="email"],
-input[type="tel"],
+h1 .hidden {
+    display: none;
+}
+
+h2 {
+    width: 560px;
+    margin-top: 5px;
+    text-align: center;
+    color: #EAC704;
+    font-family: 'Russo One';
+    font-size: 30px;
+    line-height: 120%;
+    text-shadow: 1px 1px 0 #333333;
+    padding: 0 20px;
+}
+
+#content {
+    width: 560px;
+    padding: 20px 0;
+}
+
+p#international {
+    line-height: 100%;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+}
+
+a {
+    color: #21e18d;
+}
+
 input[type="text"]{
     color: #292929;
     border: 1px solid #afafaf;
@@ -38,15 +72,6 @@ input[type="text"]{
     font: 18px/2.67 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     min-height: 50px;
 }
-    #id_email{
-        width: 504px;
-    }
-    #id_phone{
-        width: 210px;
-    }
-    #id_country{
-        width: 250px;
-    }
 
 input[disabled]{
     color: #818181;
@@ -68,43 +93,28 @@ button[disabled="disabled"]{
 form{
     display: block;
     width: 612px;
+    text-align: center;
 }
 
 .row{
     padding: 0 32px 12px;
 }
-    .row p{
-        width: 270px;
-        padding: 20px 24px 0 0;
-        font-size: 12px;
-        line-height: 1.25;
-        float: left;
-    }
 
 .row:before,.row:after{content:"\0020";display:block;height:0;overflow:hidden;}
 .row:after{clear:both;}
 .row{zoom:1;}
 
 .field{
+    vertical-align: middle;
     margin-right: 12px;
-    position: relative;
-    float: left;
+    display: inline-block;
 }
-    .field p{
-        font-size: 12px;
-        font-weight: bold;
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        padding: 0;
-    }
 
 button{
     display: inline-block;
     background: #14a767;
     border: 0;
     color: #FFF;
-    height: 38px;
     padding: 0 25px;
     background: -moz-linear-gradient(top, #14a767 0%, #09834e 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#14a767), color-stop(100%,#09834e));
@@ -113,56 +123,10 @@ button{
     background: -ms-linear-gradient(top, #14a767 0%,#09834e 100%);
     background: linear-gradient(to bottom, #14a767 0%,#09834e 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#14a767', endColorstr='#09834e',GradientType=0 );
-    font: 16px/2.38 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font: 22px/2.38 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
-}
-    #button_email:before{
-        content: url(mail.png);
-        margin-right: 6px;
-        position: relative;
-        top: 3px;
-    }
-    #button_call:before{
-        content: url(phone.png);
-        margin-right: 4px;
-        position: relative;
-        top: 3px;
-    }
-
-body.us #call,
-body.us #phone{
-    display: none;
-}
-body.us #send{
-    margin-top: -62px;
-    float: right;
-}
-    body.us #button_email{
-        padding: 0;
-        text-align: center;
-        font-size: 18px;
-        line-height: 2.84;
-        height: 50px;
-        width: 120px;
-    }
-    body.us #button_thanks{
-        padding: 0;
-        text-align: center;
-        font-size: 18px;
-        line-height: 2.84;
-        height: 50px;
-        width: 120px;
-    }
-body.us #id_country{
-    width: 372px;
-}
-body.us
-body.us .row p{
-    width: auto;
-    clear: both;
-    float: none;
 }
 
 input.error{
@@ -178,32 +142,3 @@ input.error{
     input.error:-ms-input-placeholder {
         color: red;
     }
-
-p{
-    margin: 0;
-    color: #111;
-    font-size: 16px;
-    line-height: 1.25;
-    padding: 20px 32px;
-}
-
-.nocountry #email-row{
-    float: left;
-    width: 262px;
-}
-.nocountry #id_email{
-    width: 252px;
-}
-.nocountry #country-row{
-    float: left;
-    width: 223px;
-    padding-left: 0;
-    padding-right: 0;
-}
-.nocountry #id_phone{
-    float: left;
-    width: 192px;
-}
-.nocountry .row p{
-    padding-top: 0;
-}
