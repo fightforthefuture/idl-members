@@ -10,7 +10,7 @@ from postgresify import postgresify
 from settings.base import INSTALLED_APPS
 
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SITE_ID = 2
