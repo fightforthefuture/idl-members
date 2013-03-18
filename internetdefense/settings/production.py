@@ -37,6 +37,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https',)
 STATIC_URL = 'http://internetdefenseleague.s3.amazonaws.com/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+COMPRESS_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 INCLUDE_DOMAIN = 'members.internetdefenseleague.org'
 INCLUDE_URL = INCLUDE_DOMAIN + '/include/'
