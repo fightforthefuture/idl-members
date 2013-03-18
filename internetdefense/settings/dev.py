@@ -46,3 +46,5 @@ CACHES = {
         'TIMEOUT': 60 * 60 * 24 * 365
     }
 }
+
+COMPRESS_ENABLED = True
