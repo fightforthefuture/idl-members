@@ -18,7 +18,7 @@ class CustomizeView(TemplateView):
     """
     template_name = 'index.html'
 
-    #@method_decorator(cache_page(60 * 60 * 24 * 365))
+    @method_decorator(cache_page(60 * 60 * 24 * 365))
     def dispatch(self, *args, **kwargs):
         """
         Caches the view for 365 days.
