@@ -5,9 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png"  href="{{ SECURE_STATIC_URL }}idl.png">
     <title>{% block title %}The Internet Defense League - Protecting the Free Internet since 2012.{% endblock title %}</title>
+    {% load compress %}
+    {% compress css %}
     <link href="{{ SECURE_STATIC_URL}}css/one.css" rel="stylesheet" type="text/css">
+    {%  endcompress %}
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    {% compress js %}
     <script src="{{ SECURE_STATIC_URL }}js/customize.js" async="async"></script>
+    {% endcompress %}
     <meta property="og:title" content="Want to help defend the internet from censorship and broken legislation? Join me in the Internet Defense League! If we act together, we can save the net." />
           <meta property="og:description" content="The Internet Defense League is a group of sites simultaneously sound the alarm when powerful interests try to take control of the internet. Think the SOPA blackout, but larger and even more unstoppable. We have big plans that you can be a part of. Register your site now!" />
           <meta property="og:image" content="{{ SECURE_STATIC_URL }}images/fb_share.png" />

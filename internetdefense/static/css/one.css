@@ -1755,3 +1755,5 @@ h2.montserrat,h3.montserrat {text-align: center; width: 100%; margin: 0 auto;}
 								background: #eee; border: #ccc 1px solid;
 								padding: 5px;
 								color: #000;}
+								
+								p.update {font-size: 16px; line-height: 1.5; margin: 20px auto; width: 80%;}

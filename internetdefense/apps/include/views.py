@@ -18,13 +18,13 @@ class CustomizeView(TemplateView):
     """
     template_name = 'index.html'
 
-    @method_decorator(cache_page(60 * 60 * 24 * 365))
+    #@method_decorator(cache_page(60 * 60 * 24 * 365))
     def dispatch(self, *args, **kwargs):
         """
         Caches the view for 365 days.
         """
         return super(CustomizeView, self).dispatch(*args, **kwargs)
-
+    
     def get_context_data(self, **kwargs):
         """
         Adds QuerySets of all active campaigns and presentational variants to

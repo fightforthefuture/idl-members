@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'analytics',
     'include',
     'ip2geo',
+    'compressor',
 ]
 TEMPLATE_CONTEXT_PROCESSORS = [
     'django.contrib.auth.context_processors.auth',
@@ -99,3 +100,9 @@ ROOT_URLCONF = 'urls'
 INTERNAL_IPS = ('127.0.0.1',)
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 BROKER_BACKEND = 'django'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)

@@ -4,3 +4,4 @@ South==0.7.5
 django-debug-toolbar==0.9.4
 Pillow==1.7.7
 slimit==0.7.4
+django-compressor==1.2
