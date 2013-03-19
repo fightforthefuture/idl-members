@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView
 
-from analytics.settings import CACHE_KEY_REACH
+from analytics.settings import CACHE_KEY_REACH, CACHE_KEY_SITES
 
 
 class ReachView(TemplateView):
@@ -14,7 +14,7 @@ class ReachView(TemplateView):
     """
     template_name = 'reach.html'
 
-    @method_decorator(cache_page(60 * 60 * 24))
+    #@method_decorator(cache_page(60 * 60 * 24))
     def dispatch(self, *args, **kwargs):
         """
         Caches the view for 24 hours.
@@ -28,10 +28,15 @@ class ReachView(TemplateView):
         """
         context = super(ReachView, self).get_context_data(**kwargs)
         reach = cache.get(CACHE_KEY_REACH)
+        sites = cache.get(CACHE_KEY_SITES)
+        if not sites:
+            call_command("get_sites")
+            sites = cache.get(CACHE_KEY_SITES) or NONE
         if not reach:
             call_command('get_reach')
             reach = cache.get(CACHE_KEY_REACH) or None
         context['reach'] = reach
+        context['sites'] = sites
         context['progress'] = int(85000 / 3500)  # Goal of 350K, as a percent
         return context
 
