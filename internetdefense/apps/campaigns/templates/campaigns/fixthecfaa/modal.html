@@ -1,0 +1,70 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6"> <![endif]-->
+<!--[if IE 7]> <html class="ie7">  <![endif]-->
+<!--[if IE 8]> <html class="ie8">  <![endif]-->
+<!--[if IE 9]> <html class="ie9">  <![endif]-->
+<!--[if gt IE 9]><!-->
+<html> 
+<!--<![endif]-->
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% comment %}Translators: Page Title{% endcomment %}
+        <title>{% trans "Fix The CFAA" %}</title>
+        <link href="{% static 'css/src/reset.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'campaigns/fixthecfaa/modal/modal.css' %}" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{% static 'campaigns/fixthecfaa/jquery.1.7.js' %}"></script>
+    </head>
+    <body>
+		<div id="dp_aarons_law_modal">
+		<div class="banner"></div>
+		<div class="content">
+			<img class="aaron" src="{% static 'campaigns/fixthecfaa/modal/modal-aaron.png' %}" alt="Aaron Swartz">
+			<div class="content-left">
+				<p>
+					Internet activist Aaron Swartz helped build many of the web technologies many of us rely on every day, and he didn't do it to enrich himself. But the U.S. government literally scared him to death by threatening him with 35 years in prison--just for engaging in civil disobedience for the open information movement. Aaron committed suicide last month, but let's not let his death be in vain. <a href="http://www.fixthecfaa.com">[Read more]</a>
+				</p>
+				<p class="large">
+					<strong>Tell Congress to reform the CFAA</strong>, a law which makes criminals out of practically all of us. <strong>Demand Justice for Aaron and Help Reign In Out-Of-Control Prosecutors!</strong>
+				</p>
+			</div>
+			<form action="http://act.demandprogress.org/act/" method="post" target="_top">
+				<input type="hidden" name="utf8" value="✔">
+				<input type="hidden" name="page" value="cosponsor_aarons_law_idl">
+				<input type="hidden" name="action_referer" value="" id="id_referer">
+				<input type="hidden" name="lists" value="1">
+				
+				<input type="text" id="full_name" name="name" placeholder="Full Name" value="Full Name" required="">
+				<input type="text" id="email_addr" name="email" placeholder="Email address" value="Email address" required="">
+				<input id="id_address1" type="text" placeholder="Address" value="Address" name="address1" required="">
+				<input id="id_zip" type="text" name="zip" placeholder="Zip Code" value="Zip Code" required="">
+				<input type="image" class="form-submit" src="{% static 'campaigns/fixthecfaa/modal/modal-submit.png' %}">
+				<input type="hidden" value="Subject: Cosponsor Aaron's LawPlease cosponsor Aaron's Law -- the reform of the Computer Fraud and Abuse Act that's being introduced by Senator Wyden and Representative Lofgren. It is overly broad and ineffectual. Let's make sure that what happened to Aaron Swartz never happens to anybody ever again." name="aciton_comment">
+			</form>
+			<div class="notice">
+				This campaign is a collaboration between <a href="http://DemandProgress.org">demand progress</a> and <a href="http://internetdefenseleague.org/">internet defense league</a>.<br>
+				They will be in touch...
+			</div>
+			<div class="idl">
+				<a href="http://internetdefenseleague.org/"><img src="{% static 'campaigns/fixthecfaa/modal/cat_face_90_50.png' %}" border="0"></a>
+			</div>
+			<div class="social"></div>
+			<div class="clear"></div>
+		</div>
+		</div>
+		<script type='text/javascript' charset='utf-8'>
+			$(document).ready(function() {
+				$('#dp_aarons_law_modal')
+			      .on('focus', 'input[type=text]', function(){
+			        if($(this).val() === $(this).attr('placeholder')) $(this).val('');
+			      })
+			      .on('blur', 'input[type=text]', function(){
+			        if($(this).val() === '') $(this).val($(this).attr('placeholder'));
+			      });
+			});
+		</script>
+  	</body>
+</html>
