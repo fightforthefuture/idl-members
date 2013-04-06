@@ -1,6 +1,8 @@
 #dp_aarons_law_banner_wrap {
 	position: absolute;
   width:100%;
+  margin: -8px;
+  padding: 9px;
 }
 #dp_aarons_law_banner {
 	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
