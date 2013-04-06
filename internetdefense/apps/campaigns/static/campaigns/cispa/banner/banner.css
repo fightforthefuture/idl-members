@@ -8,9 +8,13 @@
 html{
     background-image: url(bg.png);
     height: 90px;
+	margin: 0;
+	padding: 0;
 }
 
 body{
+	margin: 0;
+	padding: 0;
     height: 90px;
     margin: 0 auto;
     width: 1015px;

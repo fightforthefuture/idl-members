@@ -25,7 +25,7 @@ html.idl_banner #idl_close{
 
 html.idl_modal #idl_alert{
     width: 600px;
-    height: 400px;
+    height: 600px;
     top: 50%;
     left: 50%;
     margin: -200px 0 0 -300px;

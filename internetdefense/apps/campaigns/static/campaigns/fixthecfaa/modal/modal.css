@@ -90,3 +90,5 @@
 	overflow: hidden;
 }
 #dp_aarons_law_modal .social-item.fb {margin-left: 0;}
+
+html.idl_modal body #idl_alert {height: 1000px; display: none;}
