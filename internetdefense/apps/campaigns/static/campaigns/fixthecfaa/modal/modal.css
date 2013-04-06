@@ -1,0 +1,92 @@
+#dp_aarons_law_modal {
+	font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	width: 620px;
+	height: 561px;
+	background-color: white;
+	color: black;
+	z-index:9999;
+	position:absolute;
+	margin:auto;
+}
+#dp_aarons_law_modal .banner {
+	height: 169px;
+	width: 620px;
+	background: transparent url(modal-banner.png) no-repeat 0 0;
+}
+#dp_aarons_law_modal .content {
+	padding: 15px 20px 15px 30px;
+}
+#dp_aarons_law_modal .aaron {
+	float: right;
+	margin-top: 15px;
+}
+#dp_aarons_law_modal .content-left {
+	width: 400px;
+  background: transparent url(cat_1.png) no-repeat -18px 52px;
+}
+#dp_aarons_law_modal a {color: #9f1719;}
+#dp_aarons_law_modal p {margin: 0 0 15px 0;}
+#dp_aarons_law_modal p.large {
+	font-size: 16px;
+	line-height: 23px;
+	margin-bottom: 13px;
+}
+#dp_aarons_law_modal form {overflow: hidden; margin-bottom: 15px;}
+#dp_aarons_law_modal form .form-submit{
+  margin: 15px 0px 0px 30px;
+}
+#dp_aarons_law_modal input[type=text],#dp_aarons_law_modal  input[type=email] {
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	border:1px solid #ccc;
+	font-size:16px;
+	height:27px;
+	display:block;
+	float: left;
+	margin: 0px 5px 5px 0;
+	outline: none;
+	padding: 2px 5px;
+	background-color: #eee;
+	-webkit-box-shadow: inset -1px 1px 5px rgba(176,176, 176, .8);
+	-moz-box-shadow: inset -1px 1px 5px rbba(176, 176, 176, .8);
+	-o-box-shadow: inset -1px 1px 5px rbba(176, 176, 176, .8);
+	-ms-box-shadow: inset -1px 1px 5px rbba(176, 176, 176, .8);
+	box-shadow:inset -1px 1px 5px rgba(176, 176, 176, .8);
+}
+#dp_aarons_law_modal input[type=text]{
+	width:180px;
+
+}
+#dp_aarons_law_modal input[type=email] {
+	width:232px;
+}
+#dp_aarons_law_modal .notice, #dp_aarons_law_modal .idl {
+	font-size: 10px;
+	line-height: 14px;
+	color: #666;
+	width: 85%;
+	float: left;
+}
+#dp_aarons_law_modal .notice a, #dp_aarons_law_modal .idl a { color: #666;}
+#dp_aarons_law_modal .social {
+	width: 320px;
+	float: right;
+	margin-top: 10px;
+}
+#dp_aarons_law_modal .idl{
+	width: 12%;
+	float: right;
+  text-align: right;  
+  margin-top: -7px;
+}
+#dp_aarons_law_modal .idl img{
+  display:block;
+  float:right;
+  width:70px;
+}
+#dp_aarons_law_modal .social-item {
+	float: left;
+	width: 100px;
+	margin: 10px 0 0 5px;
+	overflow: hidden;
+}
+#dp_aarons_law_modal .social-item.fb {margin-left: 0;}
