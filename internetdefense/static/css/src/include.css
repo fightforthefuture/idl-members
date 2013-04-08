@@ -74,3 +74,15 @@ html.idl_modal #idl_alert{
         zoom: 1;
         position: absolute;
     }
+
+
+	@media only screen 
+	and (min-device-width : 320px) 
+	and (max-device-width : 480px) {
+	html.idl_modal #idl_alert{display: none;
+	}
+
+	@media
+	only screen and (-webkit-min-device-pixel-ratio : 1.5),
+	only screen and (min-device-pixel-ratio : 1.5) {
+	html.idl_modal #idl_alert{display: none;}
