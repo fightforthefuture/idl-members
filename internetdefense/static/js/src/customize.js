@@ -52,7 +52,7 @@
 
             singleCampaign.bind('change', function(evt){
                 // singleCampaign.attr('value', campaignChoice.val());
-                   singleCampaign.attr('value', 'cispa')
+                   singleCampaign.attr('value', 'fixthecfaa')
                 self.update();
             });
 
