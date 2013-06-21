@@ -1,0 +1,15 @@
+env
+venv
+*.db
+*.pyc
+*.DS_Store
+.Python
+Thumbs.db
+.svn
+*.egg-info
+pip-*.txt
+*.log
+cache
+collected_static
+node_modules
+*.swp

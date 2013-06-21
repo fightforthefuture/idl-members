@@ -1,0 +1,48 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6"> <![endif]-->
+<!--[if IE 7]> <html class="ie7">  <![endif]-->
+<!--[if IE 8]> <html class="ie8">  <![endif]-->
+<!--[if IE 9]> <html class="ie9">  <![endif]-->
+<!--[if gt IE 9]><!-->
+<html> 
+<!--<![endif]-->
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% comment %}Translators: Page Title{% endcomment %}
+        <title>{% trans "Stop CISPA" %}</title>
+        <link href="{% static 'css/src/reset.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'campaigns/cispa/modal/modal.css' %}" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="header">
+            <h1><span class="hidden">CISPA</span> is Back.</h1>
+        </div>
+        
+        <h2>This bill sacrifices privacy without improving security. We deserve both.</h2>
+
+        <div id="content">
+            <form action="https://action.eff.org/o/9042/p/dia/action/public/" method="get" target="_top">
+                <input type="hidden" name="action_KEY" value="9048" />
+                {% comment %}
+                We're going to let JavaScript fill these in, (1) because we know 
+                the user will have JavaScript enabled (or else the embed code 
+                wouldn't have ran in the first place, (2) so we can cache the view.
+                {% endcomment %}
+
+                <div class="field">
+                    {% comment %}Translators: Placeholder for zip field{% endcomment %}
+                    <input id="id_zip" type="text" name="Zip" placeholder="{% trans "Zip" %}" />
+                </div>
+                <div class="field">
+                    {% comment %}Translators: Email button text (use verb){% endcomment %}
+                    <button type="submit" class="bebas btn" id="button_email">{% trans "Tell Congress to Defend Privacy" %}</button>
+                </div>
+            </form>
+        </div>
+        <p id="international">Not in the United States? <a href="https://action.eff.org/o/9042/p/dia/action/public/?action_KEY=9137" target="_top">Take action here instead</a>.</p>
+    </body>
+</html>

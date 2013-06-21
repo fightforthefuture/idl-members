@@ -1,0 +1,15 @@
+# Requirements declaration for the production environment.
+Django==1.4
+psycopg2==2.4.5
+South==0.7.5
+gunicorn==0.14.3
+gevent==0.13.7
+Pillow==1.7.7
+pylibmc==1.2.3
+django-heroku-postgresify==0.2
+django-heroku-memcacheify==0.3
+slimit==0.7.4
+django-storages==1.1.4
+boto==2.5.2
+newrelic
+django-compressor==1.2
