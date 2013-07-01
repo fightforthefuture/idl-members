@@ -24,6 +24,14 @@ urlpatterns = patterns('',
         TemplateView.as_view(template_name="tests/banner.html"),
         name='banner',
     ),
+    url(r'^dinesh/modal/$',
+        TemplateView.as_view(template_name="dinesh/modal.html"),
+        name='dineshmodal',
+    ),
+    url(r'^dinesh/banner/$',
+        TemplateView.as_view(template_name="dinesh/banner.html"),
+        name='dineshbanner',
+    ),
 )
 
 if settings.DEBUG:
