@@ -16,9 +16,9 @@
     .adv-form{float:left; border:1px solid #d2d2d2; border-radius:5px; height:22px; box-shadow:inset 1px 1px 1px #d2d2d2}
     .txt-email ,.btn-sign ,.btn-share{border:0 none; background:transparent; margin:0px; }
     .txt-email {color:#ababab; font-size:14px; padding-left:10px;}
-    .btn-sign{cursor:pointer;background:transparent url(http://dev.thinkoverit.com/demos/images/bg_sign.png) left top repeat; color:#fff; padding:3px 20px; font-size:14px; border-top-right-radius:5px; border-bottom-right-radius:5px;text-transform:uppercase;}
-    .btn-share{background:transparent url(http://dev.thinkoverit.com/demos/images/bg_share.png) left top repeat;margin-left:10px; color:#fff; padding:3px 20px;font-size:14px;border-radius:5px;text-transform:uppercase; text-decoration:none; display:inline-block;}
-    .adv-footer{font-size:11px; background: url(http://dev.thinkoverit.com/demos/images/bg_amendment_fight.png) left center no-repeat; line-height:19px; display:inline-block; padding-left:25px;}
+    .btn-sign{cursor:pointer;background:transparent url('{% static 'campaigns/nsa/modal/bg_sign.png' %}') left top repeat; color:#fff; padding:3px 20px; font-size:14px; border-top-right-radius:5px; border-bottom-right-radius:5px;text-transform:uppercase;}
+    .btn-share{background:transparent url('{% static 'campaigns/nsa/modal/bg_sign.png' %}') left top repeat;margin-left:10px; color:#fff; padding:3px 20px;font-size:14px;border-radius:5px;text-transform:uppercase; text-decoration:none; display:inline-block;}
+    .adv-footer{font-size:11px; background: url('{% static 'bg_amendment_fight.png'}') left center no-repeat; line-height:19px; display:inline-block; padding-left:25px;}
     .adv-footer a{color:#53accb;}
     .adv-details{position:relative;}
     .adv-details img{vertical-align:middle;}
@@ -36,7 +36,8 @@
         <input type="text" placeholder="Email" name="Email" class="txt-email" />
         <input type="hidden" name="ip" id="signup_ip" value="">
         <input type="hidden" name="object" value="supporter">
-        <input type="hidden" name="organization_KEY" value="-501">
+        <input type="hidden" name="organization_KEY" value="501">
+        <input type="hidden" name="action" value="1" />
         <input type="hidden" name="user_agent" id="user_agent" value="">
         <input type="hidden" name="redirect" value="http://internetdefenseleague.org/confirm"> 
         <input type="submit" value="Sign" class="btn-sign"/>

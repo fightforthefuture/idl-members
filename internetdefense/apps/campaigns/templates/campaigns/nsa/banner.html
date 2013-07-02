@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
@@ -11,8 +13,8 @@
 
   <style>
    *{padding:0; margin:0;}
-   .ad_banner_full{width:100%; min-height:128px; display:block; background:#120207 url(http://dev.thinkoverit.com/demos/bg-adbanner-fullwidth.png) 0 0 repeat-x; color:#fff; font-family:'Helvetica Neue',Arial,Sans-Serif; font-size:14px; line-height:1.5; text-decoration:none;}
-   .ad_banner_full .ad_bannerc{display:block; min-height:128px; background:transparent url(http://dev.thinkoverit.com/demos/ad-banner-lens.jpg) 10% 0 no-repeat; vertical-align:middle;}
+   .ad_banner_full{width:100%; min-height:128px; display:block; background:#120207 url('{% static 'campaigns/nsa/banner/bg-adbanner-fullwidth.png' %}') 0 0 repeat-x; color:#fff; font-family:'Helvetica Neue',Arial,Sans-Serif; font-size:14px; line-height:1.5; text-decoration:none;}
+   .ad_banner_full .ad_bannerc{display:block; min-height:128px; background:transparent url('{% static 'campaigns/nsa/banner/ad-banner-lens.jpg' %}') 10% 0 no-repeat; vertical-align:middle;}
    .ad_banner_full .ad_title{display:inline-block; width:40%; padding:20px 5% 0 5%; font-size:24px; color:#fff; text-shadow:2px 2px 2px #000; vertical-align:middle;}
    .ad_banner_full .ad_subtitle{display:inline-block; width:25%; padding-top:15px; color:#fff; text-shadow:1px 1px 1px #000; vertical-align:middle;}
    .ad_banner_full .ad_button1, .ad_banner_full .ad_button2{display:inline-block; padding:0 20px; margin:30px 0 0 5px; line-height:45px; color:#fff; background-color:#358e00; font-weight:bold; font-size:18px; border-radius:3px; text-shadow:1px 1px 1px #194301; vertical-align:middle; white-space:nowrap;}
@@ -21,7 +23,7 @@
   </style>
  </head>
  <body>
-  <a class="ad_banner_full" href="http://callforfreedom.org" href="_blank"> 
+  <a class="ad_banner_full" href="http://callforfreedom.org" target="_blank"> 
    <span class="ad_bannerc"> 	
     <strong class="ad_title">This 4th July, we stand for the 4th Amendment and against NSA spying.</strong>
     <em class="ad_subtitle">The right of the people to be secure... against unreasonable searches and seizures, <strong>shall not be violeted</strong>.</em>
