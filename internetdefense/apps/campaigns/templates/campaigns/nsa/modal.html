@@ -10,54 +10,142 @@
 
   <title>4th Amendment</title>
   <style>
-    .main-section{font-family:Arial , Sans-Serif; color:#333333; margin-left: -8px; margin-top: -8px;}
-    .adv{width:439px; margin:0 auto; background:transparent url(http://dev.thinkoverit.com/demos/images/bg_section.png) left top repeat; position:relative;}
-    .adv-combine{padding:15px; text-align:center;clear:both;}
-    .adv-heading{font-size:17px; margin:0; padding:0; margin-bottom:15px; }
-    .adv-subscribe { display:inline-block;}
-    .adv-form{float:left; border:1px solid #d2d2d2; border-radius:5px; height:22px; box-shadow:inset 1px 1px 1px #d2d2d2}
-    .txt-email ,.btn-sign ,.btn-share{border:0 none; background:transparent; margin:0px; }
-    .txt-email {color:#ababab; font-size:14px; padding-left:10px;}
+    .main-section{font-family:Helvetica, Arial , sans-serif; color:#333333; margin-left: -8px; margin-top: -8px;}
+    .adv{width:830px; height: 545px; margin: 0; min-height: 545px; background:white url('{% static 'campaigns/nsa/modal/bg.jpg' %}') left top repeat; position:relative;}
+    .adv-combine{padding:50px 0 0 0; text-align:center;}
+    .adv-heading{font-size:30px; margin:0; padding:0; width: 690px; margin: 0 auto 20px auto;}
+    .adv-form{float:left; height: 46px; min-height: 46px; border: 1px solid #c2c2c2; border-radius: 4px; box-shadow: inset 0 0 2px #ccc;}
+    .txt-email {color:#999999; font-size:19px; border: none; line-height: 42px; padding-left: 20px; padding-right: 20px;}
     .btn-sign{cursor:pointer;background:transparent url('{% static 'campaigns/nsa/modal/bg_sign.png' %}') left top repeat; color:#fff; padding:3px 20px; font-size:14px; border-top-right-radius:5px; border-bottom-right-radius:5px;text-transform:uppercase;}
-    .btn-share{background:transparent url('{% static 'campaigns/nsa/modal/bg_sign.png' %}') left top repeat;margin-left:10px; color:#fff; padding:3px 20px;font-size:14px;border-radius:5px;text-transform:uppercase; text-decoration:none; display:inline-block;}
-    .adv-footer{font-size:11px; background: url('{% static 'campaigns/nsa/modal/bg_amendment_fight.png' %}') left center no-repeat; line-height:19px; display:inline-block; padding-left:25px;}
-    .adv-footer a{color:#53accb;}
+    .adv-footer{font-size:12px; text-align: center; margin-top: 24px; color: #6b6b6b;}
+    .adv-footer a{color:#53accb; color: bold;}
     .adv-details{position:relative;}
     .adv-details img{vertical-align:middle;}
     .adv-link {position:absolute; display:block;text-align:right; right:10px; top:40px;}
     .invalid { color: red; }
+    .form-container { width: 570px; margin: 0 auto; }
+    
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+        outline: none;
+    }
+    
+    .btn {
+      margin: 0;
+      border-radius: 3px;
+      padding: 0 30px;
+      text-decoration: none;
+      line-height: 44px;
+      text-shadow: 0 1px 3px #000;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: white;
+      font-size: 22px;
+    }
+    
+    .btn-share {
+      background: #a5dbe8; /* Old browsers */
+      background: -moz-linear-gradient(top, #a5dbe8 0%, #1ea3c5 4%, #1477ab 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5dbe8), color-stop(4%,#1ea3c5), color-stop(100%,#1477ab)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #a5dbe8 0%,#1ea3c5 4%,#1477ab 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #a5dbe8 0%,#1ea3c5 4%,#1477ab 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #a5dbe8 0%,#1ea3c5 4%,#1477ab 100%); /* IE10+ */
+      background: linear-gradient(to bottom, #a5dbe8 0%,#1ea3c5 4%,#1477ab 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5dbe8', endColorstr='#1477ab',GradientType=0 ); /* IE6-9 */
+      display: inline-block;
+      border: 1px solid #1477ab;
+      line-height: 46px;
+    }
+    
+    .btn-share:hover {
+      background: #a5dbe8; /* Old browsers */
+      background: -moz-linear-gradient(top, #a5dbe8 0%, #1ea3c5 4%, #1ea3c5 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5dbe8), color-stop(4%,#1ea3c5), color-stop(100%,#1ea3c5)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #a5dbe8 0%,#1ea3c5 4%,#1ea3c5 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #a5dbe8 0%,#1ea3c5 4%,#1ea3c5 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #a5dbe8 0%,#1ea3c5 4%,#1ea3c5 100%); /* IE10+ */
+      background: linear-gradient(to bottom, #a5dbe8 0%,#1ea3c5 4%,#1ea3c5 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5dbe8', endColorstr='#1ea3c5',GradientType=0 ); /* IE6-9 */
+    }
+    
+    .btn-sign {
+      background: #d9e8a5; /* Old browsers */
+      background: -moz-linear-gradient(top, #d9e8a5 0%, #a0c61e 4%, #72aa14 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9e8a5), color-stop(4%,#a0c61e), color-stop(100%,#72aa14)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #d9e8a5 0%,#a0c61e 4%,#72aa14 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #d9e8a5 0%,#a0c61e 4%,#72aa14 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #d9e8a5 0%,#a0c61e 4%,#72aa14 100%); /* IE10+ */
+      background: linear-gradient(to bottom, #d9e8a5 0%,#a0c61e 4%,#72aa14 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9e8a5', endColorstr='#72aa14',GradientType=0 ); /* IE6-9 */
+      display: inline-block;
+      border: 1px solid #72aa14;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    .btn-sign:hover {
+      background: #d9e8a5; /* Old browsers */
+      background: -moz-linear-gradient(top, #d9e8a5 0%, #a0c61e 4%, #a0c61e 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9e8a5), color-stop(4%,#a0c61e), color-stop(100%,#a0c61e)); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(top, #d9e8a5 0%,#a0c61e 4%,#a0c61e 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(top, #d9e8a5 0%,#a0c61e 4%,#a0c61e 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(top, #d9e8a5 0%,#a0c61e 4%,#a0c61e 100%); /* IE10+ */
+      background: linear-gradient(to bottom, #d9e8a5 0%,#a0c61e 4%,#a0c61e 100%); /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9e8a5', endColorstr='#a0c61e',GradientType=0 ); /* IE6-9 */
+    }
+    
+    .restore {
+      text-indent: -5000px;
+      overflow: hidden;
+      height: 100px;
+      width: 150px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    
+    @-moz-document url-prefix() {
+      .btn-share {
+        margin-left: 20px;
+      }
+      .txt-email {
+        min-height: 40px;
+        background: transparent;
+        padding-right: 0;
+      }
+      .btn-sign {
+        min-height: 46px;
+      }
+    }
   </style>
   <script type="text/javascript" src="{% static 'campaigns/nsa/js/zepto.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'campaigns/nsa/js/validate.min.js' %}"></script>
  </head>
   <body>
-  <section class="main-section">
-  <div class="adv">
-    <div class="adv-combine">
-     <h1 class="adv-heading">This 4th of July, we stand by the 4th Amendment and against the U.S. government's unconstitutional surveillance of Internet users.
-     </h1>
-     <div class="adv-subscribe">
-      <form class="adv-form" name="adv-form" method="POST" action="//nt.salsalabs.com/save" accept-charset="utf-8" target="_blank">
-        <input type="text" placeholder="Email" name="Email" class="txt-email" />
-        <input type="hidden" name="ip" id="signup_ip" value="">
-        <input type="hidden" name="object" value="supporter">
-        <input type="hidden" name="organization_KEY" value="501">
-        <input type="hidden" name="action" value="1" />
-        <input type="hidden" name="user_agent" id="user_agent" value="">
-        <input type="hidden" name="redirect" value="http://internetdefenseleague.org/confirm"> 
-        <input type="submit" value="Sign" class="btn-sign"/>
-      </form>
-      <a href="http://CallForFreedom.org" target="_blank" class="btn-share"> Share</a>
-     </div>
-     <p class="adv-footer"><a href="http://www.fightforthefuture.org/" target="_blank">Fight for the future</a>&nbsp;will contact you about related campaigns&nbsp;<a href="http://www.fightforthefuture.org/privacy" target="_blank">Privacy Policy</a></p>
-    </div>
-    <div class="adv-details">
-     <a href="http://RestoreTheFourth.net" target="_blank" class="adv-link"><img width="60" src="http://dev.thinkoverit.com/demos/images/rPaxDfi.png" alt="RestoreTheFourth"/></a>
-     <img src="http://dev.thinkoverit.com/demos/images/amendment.jpg" alt="The 4th Amendment"/>
-    </div>
-    
-    </div>
-   </section>
+    <section class="main-section">
+      <div class="adv">
+        <div class="adv-combine">
+          <h1 class="adv-heading">This 4th of July, we stand by the 4th Amendment and against the U.S. government's unconstitutional surveillance of Internet users.</h1>
+          <div class="form-container">
+            <form class="adv-form" name="adv-form" method="POST" action="//nt.salsalabs.com/save" accept-charset="utf-8" target="_blank">
+              <input type="text" placeholder="Email" name="Email" class="txt-email" />
+              <input type="hidden" name="ip" id="signup_ip" value="">
+              <input type="hidden" name="object" value="supporter">
+              <input type="hidden" name="organization_KEY" value="501">
+              <input type="hidden" name="action" value="1" />
+              <input type="hidden" name="user_agent" id="user_agent" value="">
+              <input type="hidden" name="redirect" value="http://internetdefenseleague.org/confirm"> 
+              <input type="submit" value="Sign" class="btn btn-sign"/>
+            </form>
+            <a href="http://CallForFreedom.org" target="_blank" class="btn btn-share"> Share</a>
+          </div>
+        </div>
+        <p class="adv-footer"><a href="http://www.fightforthefuture.org/" target="_blank">Fight for the future</a>&nbsp;will contact you about related campaigns&nbsp;<a href="http://www.fightforthefuture.org/privacy" target="_blank">Privacy Policy</a></p>
+      </div>
+      <a href="http://restorethefourth.net/" class="restore" target="_blank">Restore the Fourth</a>
+    </section>
    <script type="text/javascript">
    Zepto(function($){
      $('[name="Email"]').bind('focus', function() {
