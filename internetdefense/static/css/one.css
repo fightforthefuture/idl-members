@@ -1568,6 +1568,12 @@ form#banner_emails button {padding: 15px; padding-left: 5px;border: none; backgr
 
 
 h2.montserrat,h3.montserrat {text-align: center; width: 100%; margin: 0 auto;}
+
+h2.montserrat {
+  width: 918px;
+  padding-right: 40px;
+}
+
               .works li {color: #fff;}
               #intro {color: #fff;}
               a {color: #e5da2c;}
