@@ -25,7 +25,10 @@
     .adv-details{position:relative;}
     .adv-details img{vertical-align:middle;}
     .adv-link {position:absolute; display:block;text-align:right; right:10px; top:40px;}
+    .invalid { color: red; }
   </style>
+  <script type="text/javascript" src="{% static 'campaigns/nsa/js/zepto.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'campaigns/nsa/js/validate.min.js' %}"></script>
  </head>
   <body>
   <section class="main-section">
@@ -34,7 +37,7 @@
      <h1 class="adv-heading">This 4th of July, we stand by the 4th Amendment and against the U.S. government's unconstitutional surveillance of Internet users.
      </h1>
      <div class="adv-subscribe">
-      <form class="adv-form" method="POST" action="//nt.salsalabs.com/save" accept-charset="utf-8" target="_blank">
+      <form class="adv-form" name="adv-form" method="POST" action="//nt.salsalabs.com/save" accept-charset="utf-8" target="_blank">
         <input type="text" placeholder="Email" name="Email" class="txt-email" />
         <input type="hidden" name="ip" id="signup_ip" value="">
         <input type="hidden" name="object" value="supporter">
@@ -46,7 +49,7 @@
       </form>
       <a href="http://CallForFreedom.org" target="_blank" class="btn-share"> Share</a>
      </div>
-     <p class="adv-footer"><a href="#">Fight for the future</a>&nbsp;will contact you about related campaigns&nbsp;<a href="#">Privacy Policy</a></p>
+     <p class="adv-footer"><a href="http://www.fightforthefuture.org/" target="_blank">Fight for the future</a>&nbsp;will contact you about related campaigns&nbsp;<a href="http://www.fightforthefuture.org/privacy" target="_blank">Privacy Policy</a></p>
     </div>
     <div class="adv-details">
      <a href="http://RestoreTheFourth.net" target="_blank" class="adv-link"><img width="60" src="http://dev.thinkoverit.com/demos/images/rPaxDfi.png" alt="RestoreTheFourth"/></a>
@@ -55,5 +58,29 @@
     
     </div>
    </section>
+   <script type="text/javascript">
+   Zepto(function($){
+     $('[name="Email"]').bind('focus', function() {
+       $(this).removeClass('invalid');
+     });
+   });
+   var validator = new FormValidator('adv-form', [
+   {
+     name: 'Email',
+     rules: 'valid_email|required'
+   }
+   ], function(errors, e) {
+     if (errors.length > 0) {
+       var errorString = '';
+
+       for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
+         var el = $('[name="' + errors[i].name + '"]');
+         el.addClass('invalid');
+       }
+       
+       e.preventDefault();
+     }
+   });
+   </script>
   </body>
  </html>
