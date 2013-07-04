@@ -112,6 +112,10 @@ class IncludeMixin(object):
             return self.campaign
 
         slug = self.request.GET.get('campaign', None)
+        
+        if slug == 'NSA':
+            slug = 'nsa'
+        
         if slug:
             try:
                 self.campaign = Campaign.objects.active().get(slug=slug)
