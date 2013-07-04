@@ -29,7 +29,11 @@
     // Ensure that user hasn't opted out
     var cookieName = '_idl_opt_out_' + '{{ campaign.slug }}',
         opted_out = cookie.read(cookieName) == 'true';
-    if(!opted_out || defaults.test){
+
+    // disable mobile and small screens
+    if(!(window.innerWidth <= 800 && window.innerHeight <= 800)){
+
+     if(!opted_out || defaults.test){
 
         // Caches settings serialization and fetch of body element
         var settings = querystring.encode(defaults),
@@ -158,12 +162,13 @@
         style.type = 'text/css';
         head.appendChild(style);
         if(style.styleSheet){
-            style.styleSheet.cssText = rules;            
+            style.styleSheet.cssText = rules;
         }else{
             style.innerHTML = rules;
         }
 
     }
 
-    {% include 'include/js/lib/closure_finish.js' %}
+      } /* if tinyscreen() */
 
+    {% include 'include/js/lib/closure_finish.js' %}
