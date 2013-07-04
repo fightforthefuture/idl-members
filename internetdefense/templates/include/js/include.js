@@ -7,6 +7,8 @@
     {% include 'include/js/lib/addevent.js' %}
     {% include 'include/js/lib/classname.js' %}
 
+    testingabc = "44";
+
     // Default settings
     var qs = querystring.decode(),
         canPostMessage = !!window.postMessage,
@@ -158,7 +160,7 @@
         style.type = 'text/css';
         head.appendChild(style);
         if(style.styleSheet){
-            style.styleSheet.cssText = rules;            
+            style.styleSheet.cssText = rules;
         }else{
             style.innerHTML = rules;
         }
@@ -166,4 +168,3 @@
     }
 
     {% include 'include/js/lib/closure_finish.js' %}
-
