@@ -29,9 +29,12 @@
     // Ensure that user hasn't opted out
     var cookieName = '_idl_opt_out_' + '{{ campaign.slug }}',
         opted_out = cookie.read(cookieName) == 'true';
+        
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1;
 
     // disable mobile and small screens
-    if(!(window.innerWidth <= 800 && window.innerHeight <= 800)){
+    if(!(window.innerWidth <= 800 && window.innerHeight <= 800) && !(navigator.userAgent.match(/iPhone/i) || isAndroid)){
 
      if(!opted_out || defaults.test){
 
