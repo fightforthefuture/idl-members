@@ -31,7 +31,10 @@
     // Ensure that user hasn't opted out
     var cookieName = '_idl_opt_out_' + '{{ campaign.slug }}',
         opted_out = cookie.read(cookieName) == 'true';
-    if(!tiny_screen() || !opted_out || defaults.test){
+
+    if(!tiny_screen()){
+
+     if(!opted_out || defaults.test){
 
         // Caches settings serialization and fetch of body element
         var settings = querystring.encode(defaults),
@@ -166,5 +169,7 @@
         }
 
     }
+
+      } /* if tinyscreen() */
 
     {% include 'include/js/lib/closure_finish.js' %}
