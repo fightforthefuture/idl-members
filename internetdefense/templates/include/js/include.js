@@ -7,8 +7,6 @@
     {% include 'include/js/lib/addevent.js' %}
     {% include 'include/js/lib/classname.js' %}
 
-    testingabc = "44";
-
     // Default settings
     var qs = querystring.decode(),
         canPostMessage = !!window.postMessage,
@@ -28,10 +26,12 @@
         }
     }
 
+    var tiny_screen = window.innerWidth <= 800 && window.innerHeight <= 800;
+
     // Ensure that user hasn't opted out
     var cookieName = '_idl_opt_out_' + '{{ campaign.slug }}',
         opted_out = cookie.read(cookieName) == 'true';
-    if(!opted_out || defaults.test){
+    if(!tiny_screen || !opted_out || defaults.test){
 
         // Caches settings serialization and fetch of body element
         var settings = querystring.encode(defaults),
