@@ -26,13 +26,12 @@
         }
     }
 
-    tiny_screen = function(){ return window.innerWidth <= 800 && window.innerHeight <= 800; };
-
     // Ensure that user hasn't opted out
     var cookieName = '_idl_opt_out_' + '{{ campaign.slug }}',
         opted_out = cookie.read(cookieName) == 'true';
 
-    if(!tiny_screen()){
+    // disable mobile and small screens
+    if(!(window.innerWidth <= 800 && window.innerHeight <= 800)){
 
      if(!opted_out || defaults.test){
 
