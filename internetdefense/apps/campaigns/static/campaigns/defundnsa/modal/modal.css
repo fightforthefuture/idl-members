@@ -4,7 +4,7 @@ html {
 }
 
 #header {
-    background: url('header@2x.png') no-repeat center;
+    background: url('header.png') no-repeat center;
     background-size: 550px 237px;
     width: 550px;
     height: 237px;
