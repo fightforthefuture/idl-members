@@ -1,0 +1,64 @@
+html {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+
+#header {
+    background: url('header@2x.png') no-repeat center;
+    background-size: 550px 237px;
+    width: 550px;
+    height: 237px;
+    margin: 25px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    #header {
+        background: url('header@2x.png') no-repeat top left;
+        background-size: 550px 237px;
+        width: 550px;
+        height: 237px;
+        margin: 25px;
+    }
+}
+
+#content {
+    width: 550px;
+    padding: 0px 25px 25px 25px;
+    font-family: droid-serif, serif;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+
+a {
+    color: #eb3d00;
+    text-decoration: none;
+}
+
+a#defundthensa {
+    font-family: league-gothic, sans-serif;
+    font-size: 40px;
+    margin-top: 27px;
+    float: right;
+}
+
+a#button {
+    font-family: carter-one, sans-serif;
+    font-size: 30px;
+    display: inline-block;
+    background: #eb3d00;
+    border: 0;
+    color: #ffffff;
+    margin-top: 20px;
+    padding: 7px 25px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#international {
+    font-family: "Arial", serif;
+    font-size: 11px;
+}
+
+#idl_alert { height: 1000px; padding-bottom: 100px; }

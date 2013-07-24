@@ -1,0 +1,49 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie6"> <![endif]-->
+<!--[if IE 7]> <html class="ie7">  <![endif]-->
+<!--[if IE 8]> <html class="ie8">  <![endif]-->
+<!--[if IE 9]> <html class="ie9">  <![endif]-->
+<!--[if gt IE 9]><!-->
+<html> 
+<!--<![endif]-->
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        {% comment %}Translators: Page Title{% endcomment %}
+        <title>{% trans "Defund the NSA's blanket surveillance" %}</title>
+        <link href="{% static 'css/src/reset.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'campaigns/defundnsa/banner/banner.css' %}" rel="stylesheet" type="text/css" />
+    </head>
+    <script type="text/javascript">
+        function loadAsync( scriptURL ) {
+            var scriptNode = document.createElement('script'); scriptNode.type = 'text/javascript'; scriptNode.async = true;
+            scriptNode.src = scriptURL;
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore( scriptNode, s );
+            }
+
+        loadAsync( "http://use.edgefonts.net/droid-serif;league-gothic;carter-one.js" );
+    </script>
+    <body>
+        <a id="left" href="http://defundthensa.com/" target="_blank"></a>
+        <div id="firstpara">
+            Tomorrow, US Congress is voting on an amendment that would
+            <a href="http://defundthensa.com/" target="_blank">block funding for NSA
+            programs using Section 215 of the Patriot Act</a> to mass collect the call records
+            of innocent Americans.
+        </div>
+        <div id="secondpara">
+            We have one day to convince Congress to vote to restore our privacy!
+        </div>
+        <div id="right">
+            <a id="button" href="http://defundthensa.com/" target="_blank">Act Now!</a>
+            <br/>
+            <span class="international">
+                Not in the United States?
+                <a href="https://www.eff.org/nsa-spying/" target="_blank">Consider supporting EFF's fight against the unwarranted surveillance</a>
+            </span>
+        </div>
+  	</body>
+</html>
