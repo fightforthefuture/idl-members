@@ -8,11 +8,13 @@ html {
 
 body {
 	padding: 0;
+  width: 1024px;
     height: 90px;
     margin: 0 auto;
     font-family: droid-serif, serif;
     font-size: 14px;
     line-height: 18px;
+    padding-top: 10px;
 }
 
 #left {
@@ -21,7 +23,7 @@ body {
     background-size: 76px 80px;
     width: 76px;
     height: 80px;
-    margin: 2px 0 0 175px;
+    margin: 2px 20px 0 0px;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2),
@@ -47,14 +49,14 @@ body {
     width: 250px;
     font-size: 20px;
     line-height: 24px;
-    margin-left: 15px;
+    margin-left: 20px;
     margin-top: 7px;
 }
 
 #right {
     float: left;
     width: 280px;
-    margin-left: 15px;
+    margin-left: 20px;
 }
 
 a {
