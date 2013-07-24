@@ -1,0 +1,90 @@
+html {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    height: 90px;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 0;
+    height: 90px;
+    margin: 0 auto;
+    width: 1015px;
+    font-family: droid-serif, serif;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+#left {
+    float: left;
+    background: url('image.png') no-repeat top left;
+    background-size: 76px 80px;
+    width: 76px;
+    height: 80px;
+    margin: 2px 0 0 175px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    #left {
+        float: left;
+        background: url('image@2x.png') no-repeat top left;
+        background-size: 76px 80px;
+        width: 76px;
+        height: 80px;
+        margin: 4px 20px 0px 0px;
+    }
+}
+
+#firstpara {
+    float: left;
+    width: 350px;
+    margin-top: 7px;
+}
+
+#secondpara {
+    float: left;
+    width: 250px;
+    font-size: 20px;
+    line-height: 24px;
+    margin-left: 15px;
+    margin-top: 7px;
+}
+
+#right {
+    float: left;
+    width: 280px;
+    margin-left: 15px;
+}
+
+a {
+    color: #eb3d00;
+    text-decoration: none;
+}
+
+a#defundthensa {
+    font-family: league-gothic, sans-serif;
+    font-size: 40px;
+    margin-top: 27px;
+    float: right;
+}
+
+a#button {
+    font-family: carter-one, sans-serif;
+    font-size: 30px;
+    display: inline-block;
+    background: #eb3d00;
+    border: 0;
+    color: #ffffff;
+    margin-top: 7px;
+    padding: 10px 25px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.international {
+    font-family: "Arial", serif;
+    font-size: 11px;
+    line-height: 12px;
+}
