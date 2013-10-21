@@ -78,3 +78,42 @@ With one exception, all files involved in an include are served using ``django.c
 The JavaScript produced by ``IncludeView`` is minified by a template tag in the ``include`` app.
 
 Currently, all other static files are minified by a [grunt](https://github.com/cowboy/grunt) script located in the ``static`` directory. In the near future, this task will be moved to a Django management command.
+
+
+### Process for Groups Partnering with IDL or IDL linking to Actions
+
+IDL widgets may be built by partner organizations. e.g. if the Watch Group agrees that this would be beneficial to the overall goals of the IDL and supporting the internet freedom movement. 
+
+In this scenario, the other group would:
+
+Commit to doing all the writing, outreach, development and design work for the IDL action. We will post at members.internetdefenseleague.org and send to our email list.
+
+Write an email for IDL list pre-action and when the action goes live. 
+Provide a check-box for action-takers to sign up for the IDL, transport individuals who checked this and export these emails of those individuals to IDL so that IDL can do a confirmed opt-in pass. Alternatively, the action sends people to internetdefenseleague.org after someone has taken action and in their responder, follow up emails. 
+
+Provide a link for non-us users "Not in the US, go here" or allow international sign ups.
+
+### Instructions for developing IDL code are here: 
+
+1. Clone https://github.com/fightforthefuture/idl-members
+
+2. Build your campaign / Write HTML / CSS to put in the banner / modal  (an easy way to get started is to copy / paste an existing campaign like this one: https://github.com/fightforthefuture/idl-members/tree/master/internetdefense/apps/campaigns/templates/campaigns/cispa )
+* You have to add an entry to urls.py for any new modal/banners you want to add, so here's an example:
+
+   url(r'^dinesh/modal/$',
+
+        TemplateView.as_view(template_name="dinesh/modal.html"),
+
+        name='dineshmodal',
+
+    ),
+    url(r'^dinesh/banner/$',
+
+        TemplateView.as_view(template_name="dinesh/banner.html"),
+
+        name='dineshbanner',
+
+    ),
+
+3. Send us a pull request with your changes
+need to test the code. locally to test you just go to localhost:8000/test/modal or localhost:8000/test/banner. You can test to ensure that the JavaScript is correctly installed by adding a querystring parameter: _idl_test=1 … Example here: http://www.fightforthefuture.org/?_idl_test=1 (when using Wordpress, you have to sign out from an admin account to see if it works. this if for users, not for developers of the IDL code)
