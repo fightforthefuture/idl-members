@@ -1,9 +1,8 @@
-<!--[if !(lte IE 8)]><!-->
-<script> 
-  (function(){
-    var e = document.createElement('script'); e.type='text/javascript'; e.async = true;
-    e.src = document.location.protocol + '//d1ux67szpr7bp0.cloudfront.net/project-megaphone/widget.min.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s);
-  })();
-</script>
-<!--<![endif]-->
+    window._idl = {};{variant}{campaign}
+    (function() {
+        var idl = document.createElement('script');
+        idl.type = 'text/javascript';
+        idl.async = true;
+        idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + '{{ INCLUDE_URL }}?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
+        document.getElementsByTagName('body')[0].appendChild(idl);
+    })();
