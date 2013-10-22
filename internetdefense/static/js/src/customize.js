@@ -21,7 +21,7 @@
             this.update = function(){
                 var projectMegaphoneIsActive = true;
                 if (projectMegaphoneIsActive) {
-                    return output.val(output.data('template'));
+                    return;
                 }
 
                 var new_code = output.data('template');
