@@ -19,6 +19,11 @@
 
             output.data('template', output.val());
             this.update = function(){
+                var projectMegaphoneIsActive = true;
+                if (projectMegaphoneIsActive) {
+                    return output.val(output.data('template'));
+                }
+
                 var new_code = output.data('template');
                 new_code = new_code.replace('{variant}', configString('variant', $('[name="variant"]:checked').val()));
                 new_code = new_code.replace('{campaign}', configString('campaign', $('[name="campaign"]:checked').val()));
