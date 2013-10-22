@@ -4,61 +4,12 @@
 
     <div class="wrap" id="intro">
         <h1 id="logo">Internet Defense League</h1>
-        <h2 class="montserrat">Critical! We have a chance to pass a US law that would defund NSA blanket spying! Help out now!</h2>
+        <h2 class="montserrat">We need to show Congress that passing meaningful legislation is critical.</h2>
         
         <div class="indent dark large">
             <h3 class="montserrat">Get the code for your site:</h3>
             <textarea name="output" readonly>{% include "include.html" %}</textarea>
         </div>
-
-        {% for variant in variants %}
-            <div class="small {% if forloop.first %}indented light{% endif %} {% cycle "lefty" "righty" %}">
-                <span>
-                    <input type="radio" name="variant" id="variant_{{ variant.slug }}" value="{{ variant.slug }}" {% if forloop.first %}checked="checked"{% endif %} />
-                    <label for="variant_{{ variant.slug }}" class="montserrat">{{ variant.name }}</label>
-                </span>
-                <img src="{{ SECURE_STATIC_URL }}img/{{ variant.slug }}.png" alt="{{ variant.name }} Screenshot" />
-            </div>
-            {% if not forloop.last %}
-                <span class="circle">OR</span>
-            {% endif %}
-        {% endfor %}
-
-        <div class="row biggie">
-
-            <div class="light indented small">
-                    <span class="inputs">
-                        <input type="radio" checked="checked" name="campaign" id="all" value="" />
-                        <label for="all" class="montserrat">All league campaigns</i>
-                    </span>
-                    <p class="description">Turns itself off after the campaign, and activates automatically for the next one.</p>
-                    <!-- <p class="montserrat"><a href="">Instructions for testing</a></p> -->
-            </div>
-
-            <span class="circle">OR</span>
-
-            <div class="row biggie righty">
-                <div class="small">
-                    <span class="inputs">
-                        <input type="radio" name="campaign" id="single" value="" />
-                        <label for="single" class="montserrat">Just for <a href="http://defundthensa.com/">Defund the NSA</a></label>
-                    </span>
-                    <p class="description">Code is live as soon as you add it, but you'll have to update it for each new campaign.</p>
-                    <fieldset style="display: none;">
-                        <label for="campaign_choice">Campaign:</label>
-                        <select id="campaign_choice" name="campaign_choice">
-                            <option value="" selected="selected"></option>
-                            {% for campaign in campaigns %}
-                                <option value="{{ campaign.slug }}">{{ campaign.name }}</option>
-                            {% endfor %}
-                        </select>
-                    </fieldset>
-                </div>
-            </div>
-
-</div>
-
-
 
         <div class="update" style="width: 750px; margin: 0 auto; padding-top: 30px;">
         <h2 id="instructions">Instructions</h2>
