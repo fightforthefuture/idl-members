@@ -71,6 +71,9 @@
 
         var include = new IDL.CustomIncludeCode();
 
+        // Trigger change event. Just in case the user refreshed the page, with non standard options.
+        $('input:checked').change();
+
     });
     
 
