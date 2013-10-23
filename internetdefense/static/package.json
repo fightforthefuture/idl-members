@@ -4,7 +4,6 @@
     "version": "1.0.0",
     "dependencies": {
         "grunt" : "*",
-        "grunt-contrib-mincss" : "*",
         "grunt-contrib-uglify" : "*",
         "grunt-contrib-watch" : "*"
     }
