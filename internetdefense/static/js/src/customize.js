@@ -52,7 +52,7 @@
 
             singleCampaign.bind('change', function(evt){
                 // singleCampaign.attr('value', campaignChoice.val());
-                   singleCampaign.attr('value', 'nsa')
+                   singleCampaign.attr('value', 'stopwatchingusrally')
                 self.update();
             });
 
