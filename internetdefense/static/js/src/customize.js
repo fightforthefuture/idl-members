@@ -52,7 +52,7 @@
 
             singleCampaign.bind('change', function(evt){
                 // singleCampaign.attr('value', campaignChoice.val());
-                   singleCampaign.attr('value', 'nsa')
+                   singleCampaign.attr('value', 'stopwatchingusrally')
                 self.update();
             });
 
@@ -70,6 +70,9 @@
     $(function() {
 
         var include = new IDL.CustomIncludeCode();
+
+        // Trigger change event. Just in case the user refreshed the page, with non standard options.
+        $('input:checked').change();
 
     });
     

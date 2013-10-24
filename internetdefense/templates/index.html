@@ -4,7 +4,19 @@
 
     <div class="wrap" id="intro">
         <h1 id="logo">Internet Defense League</h1>
-        <h2 class="montserrat">Critical! We have a chance to pass a US law that would defund NSA blanket spying! Help out now!</h2>
+        <h2 class="montserrat">Help amplify the largest-ever protest against mass spying, happening this Saturday in DC.</h2>
+
+        <h3 class="montserrat">
+            The Internet Defense League supports the Stop Watching Us Coalition. Get the code for your site below to display a message to your users promoting the largest rally ever against NSA surveillance.
+        </h3>
+
+        <h3 class="montserrat">
+            For more options, check this <a href="https://github.com/tfrce/project-megaphone">Github Repo</a>
+        </h3>
+
+        <a class="montserrat" style="font-size: 14px; text-align: center; width: 100%; display: block;" href="http://wordpress.org/plugins/project-megaphone-banner/">
+            Wordpress user? Use this plugin!
+        </a>
         
         <div class="indent dark large">
             <h3 class="montserrat">Get the code for your site:</h3>
@@ -17,7 +29,7 @@
                     <input type="radio" name="variant" id="variant_{{ variant.slug }}" value="{{ variant.slug }}" {% if forloop.first %}checked="checked"{% endif %} />
                     <label for="variant_{{ variant.slug }}" class="montserrat">{{ variant.name }}</label>
                 </span>
-                <img src="{{ SECURE_STATIC_URL }}img/{{ variant.slug }}.png" alt="{{ variant.name }} Screenshot" />
+                <img style="height: 215px;" src="{{ SECURE_STATIC_URL }}img/{{ variant.slug }}.png" alt="{{ variant.name }} Screenshot" />
             </div>
             {% if not forloop.last %}
                 <span class="circle">OR</span>
@@ -41,7 +53,7 @@
                 <div class="small">
                     <span class="inputs">
                         <input type="radio" name="campaign" id="single" value="" />
-                        <label for="single" class="montserrat">Just for <a href="http://defundthensa.com/">Defund the NSA</a></label>
+                        <label for="single" class="montserrat">Just for <a href="https://rally.stopwatching.us/fight-surveillance-with-9-lines-of-code/">Stop Watching Us Rally</a></label>
                     </span>
                     <p class="description">Code is live as soon as you add it, but you'll have to update it for each new campaign.</p>
                     <fieldset style="display: none;">
