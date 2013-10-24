@@ -202,7 +202,7 @@ class IncludeView(IncludeMixin, TemplateView):
         Otherwise, set context data and return the appropriate response.
         """
         
-        project_megaphone_is_active = False
+        project_megaphone_is_active = True
 
         if not project_megaphone_is_active and not self.get_campaign() and not self.is_test():
             return HttpResponse()
