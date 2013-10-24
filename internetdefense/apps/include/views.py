@@ -112,6 +112,9 @@ class IncludeMixin(object):
             return self.campaign
 
         slug = self.request.GET.get('campaign', None)
+
+        # For Project Megaphone
+        return slug
         
         if slug == 'NSA':
             slug = 'nsa'
