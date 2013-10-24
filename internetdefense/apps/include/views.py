@@ -108,13 +108,14 @@ class IncludeMixin(object):
 
         Otherwise, return the latest active campaign, if there are any.
         """
+        # For Project Megaphone
+        return True
+        
         if self.campaign is not None:
             return self.campaign
 
         slug = self.request.GET.get('campaign', None)
 
-        # For Project Megaphone
-        return slug
         
         if slug == 'NSA':
             slug = 'nsa'
