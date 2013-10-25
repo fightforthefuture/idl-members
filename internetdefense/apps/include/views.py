@@ -193,7 +193,7 @@ class IncludeView(IncludeMixin, TemplateView):
     cache_key_prefix = 'js'
     content_type = 'application/x-javascript'
 
-    @method_decorator(analytics_log)
+    # @method_decorator(analytics_log)
     def dispatch(self, *args, **kwargs):
         """
         Default dispatch method, decorated to ensure that each request is
