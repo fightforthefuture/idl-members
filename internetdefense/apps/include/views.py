@@ -108,8 +108,6 @@ class IncludeMixin(object):
 
         Otherwise, return the latest active campaign, if there are any.
         """
-        # For Project Megaphone
-        return True
         
         if self.campaign is not None:
             return self.campaign
