@@ -41,7 +41,7 @@ class IncludeMixin(object):
     test = None
     content_type = 'text/javascript'
 
-    def render_to_response(self, context, **kwargs):
+    def render_to_responses(self, context, **kwargs):
         """
         If available, returns a cached response. Otherwise, generates and
         caches a response.
