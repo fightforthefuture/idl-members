@@ -56,7 +56,6 @@ class IncludeMixin(object):
         Creates a cache key, based on a hash of the context data (i.e. the
         configuration parameters passed by the implementors).
         """
-        
         return '%s_%s' % (
             self.cache_key_prefix,
             hash(frozenset(self.settings().items())),
@@ -66,7 +65,6 @@ class IncludeMixin(object):
         """
         Creates and caches a response object based on the context data.
         """
-
         response = self.response_class(
             request=self.request,
             template=self.get_template_names(),
@@ -110,6 +108,8 @@ class IncludeMixin(object):
 
         Otherwise, return the latest active campaign, if there are any.
         """
+        # For Project Megaphone
+        return True
         
         if self.campaign is not None:
             return self.campaign
@@ -192,26 +192,25 @@ class IncludeView(IncludeMixin, TemplateView):
     cache_key_prefix = 'js'
     content_type = 'application/x-javascript'
 
-    # @method_decorator(analytics_log)
-    # def dispatch(self, *args, **kwargs):
-    #     """
-    #     Default dispatch method, decorated to ensure that each request is
-    #     logged.
-    #     """
-    #     return super(IncludeView, self).dispatch(*args, **kwargs)
+    @method_decorator(analytics_log)
+    def dispatch(self, *args, **kwargs):
+        """
+        Default dispatch method, decorated to ensure that each request is
+        logged.
+        """
+        return super(IncludeView, self).dispatch(*args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         """
         If there are no campaigns to display, return an empty response.
         Otherwise, set context data and return the appropriate response.
         """
-
+        
         # Disable after Rally
         import time
         if int(time.time()) > 1382803200:
             return HttpResponse()
-        else:
-            return self.render_to_response({})
+        project_megaphone_is_active = True
 
         if not project_megaphone_is_active and not self.get_campaign() and not self.is_test():
             return HttpResponse()
