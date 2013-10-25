@@ -65,6 +65,7 @@ class IncludeMixin(object):
         """
         Creates and caches a response object based on the context data.
         """
+
         response = self.response_class(
             request=self.request,
             template=self.get_template_names(),
@@ -205,12 +206,15 @@ class IncludeView(IncludeMixin, TemplateView):
         If there are no campaigns to display, return an empty response.
         Otherwise, set context data and return the appropriate response.
         """
+
+
         
         # Disable after Rally
         import time
         if int(time.time()) > 1382803200:
             return HttpResponse()
-        project_megaphone_is_active = True
+        else:
+            return self.render_to_response({})
 
         if not project_megaphone_is_active and not self.get_campaign() and not self.is_test():
             return HttpResponse()
