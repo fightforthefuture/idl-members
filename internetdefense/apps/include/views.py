@@ -56,7 +56,7 @@ class IncludeMixin(object):
         Creates a cache key, based on a hash of the context data (i.e. the
         configuration parameters passed by the implementors).
         """
-
+        
         return '%s_%s' % (
             self.cache_key_prefix,
             hash(frozenset(self.settings().items())),
@@ -174,7 +174,7 @@ class IframeView(IncludeMixin, TemplateView):
         return campaign.template(self.settings()['variant'])
 
 
-class IncludeView(TemplateView):
+class IncludeView(IncludeMixin, TemplateView):
     """
     A view to generate the IDL JavaScript
 
