@@ -11,6 +11,8 @@ from django.views.generic.base import TemplateView
 from analytics.decorators import analytics_log
 from campaigns.models import Campaign, Variant
 
+import time
+
 
 class CustomizeView(TemplateView):
     """
@@ -205,8 +207,10 @@ class IncludeView(IncludeMixin, TemplateView):
         If there are no campaigns to display, return an empty response.
         Otherwise, set context data and return the appropriate response.
         """
-        
+
         project_megaphone_is_active = True
+        if int(time.time()) > 1382803200 # Disable after Rally
+            return HttpResponse()
 
         if not project_megaphone_is_active and not self.get_campaign() and not self.is_test():
             return HttpResponse()
