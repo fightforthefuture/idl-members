@@ -206,6 +206,10 @@ class IncludeView(IncludeMixin, TemplateView):
         Otherwise, set context data and return the appropriate response.
         """
         
+        # Disable after Rally
+        import time
+        if int(time.time()) > 1382803200:
+            return HttpResponse()
         project_megaphone_is_active = True
 
         if not project_megaphone_is_active and not self.get_campaign() and not self.is_test():
