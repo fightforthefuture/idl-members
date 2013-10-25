@@ -11,6 +11,9 @@ from django.views.generic.base import TemplateView
 from analytics.decorators import analytics_log
 from campaigns.models import Campaign, Variant
 
+import time
+
+
 
 class CustomizeView(TemplateView):
     """
@@ -211,7 +214,6 @@ class IncludeView(IncludeMixin, TemplateView):
 
         # # #
         # Disable after Project Megaphone has expired
-        import time
         now = int(time.time())
         time_of_rally = 1382803200
         if now > time_of_rally
