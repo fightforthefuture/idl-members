@@ -194,12 +194,12 @@ class IncludeView(IncludeMixin, TemplateView):
     content_type = 'application/x-javascript'
 
     # @method_decorator(analytics_log)
-    def dispatch(self, *args, **kwargs):
-        """
-        Default dispatch method, decorated to ensure that each request is
-        logged.
-        """
-        return super(IncludeView, self).dispatch(*args, **kwargs)
+    # def dispatch(self, *args, **kwargs):
+    #     """
+    #     Default dispatch method, decorated to ensure that each request is
+    #     logged.
+    #     """
+    #     return super(IncludeView, self).dispatch(*args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         """
