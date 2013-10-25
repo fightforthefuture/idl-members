@@ -11,9 +11,6 @@ from django.views.generic.base import TemplateView
 from analytics.decorators import analytics_log
 from campaigns.models import Campaign, Variant
 
-import time
-
-
 
 class CustomizeView(TemplateView):
     """
@@ -111,11 +108,8 @@ class IncludeMixin(object):
 
         Otherwise, return the latest active campaign, if there are any.
         """
-
-        # # #
         # For Project Megaphone
         return True
-        # # #
         
         if self.campaign is not None:
             return self.campaign
@@ -211,16 +205,10 @@ class IncludeView(IncludeMixin, TemplateView):
         If there are no campaigns to display, return an empty response.
         Otherwise, set context data and return the appropriate response.
         """
+        
+        project_megaphone_is_active = True
 
-        # # #
-        # Disable after Project Megaphone has expired
-        now = int(time.time())
-        time_of_rally = 1382803200
-        if now > time_of_rally
-            return HttpResponse()
-        # # #
-
-        if not self.get_campaign() and not self.is_test():
+        if not project_megaphone_is_active and not self.get_campaign() and not self.is_test():
             return HttpResponse()
         else:
             self.context_data = self.get_context_data(params=kwargs)
