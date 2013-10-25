@@ -57,8 +57,6 @@ class IncludeMixin(object):
         configuration parameters passed by the implementors).
         """
 
-        return 'stopwatchingus'
-
         return '%s_%s' % (
             self.cache_key_prefix,
             hash(frozenset(self.settings().items())),
@@ -178,7 +176,7 @@ class IframeView(IncludeMixin, TemplateView):
         return campaign.template(self.settings()['variant'])
 
 
-class IncludeView(IncludeMixin, TemplateView):
+class IncludeView(TemplateView):
     """
     A view to generate the IDL JavaScript
 
