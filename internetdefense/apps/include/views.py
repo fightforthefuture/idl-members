@@ -56,6 +56,9 @@ class IncludeMixin(object):
         Creates a cache key, based on a hash of the context data (i.e. the
         configuration parameters passed by the implementors).
         """
+
+        return 'stopwatchingus'
+
         return '%s_%s' % (
             self.cache_key_prefix,
             hash(frozenset(self.settings().items())),
@@ -207,8 +210,6 @@ class IncludeView(IncludeMixin, TemplateView):
         Otherwise, set context data and return the appropriate response.
         """
 
-
-        
         # Disable after Rally
         import time
         if int(time.time()) > 1382803200:
