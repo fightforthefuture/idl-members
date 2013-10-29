@@ -108,14 +108,10 @@ class IncludeMixin(object):
 
         Otherwise, return the latest active campaign, if there are any.
         """
-        # For Project Megaphone
-        return True
-        
         if self.campaign is not None:
             return self.campaign
 
         slug = self.request.GET.get('campaign', None)
-
         
         if slug == 'NSA':
             slug = 'nsa'
@@ -205,10 +201,7 @@ class IncludeView(IncludeMixin, TemplateView):
         If there are no campaigns to display, return an empty response.
         Otherwise, set context data and return the appropriate response.
         """
-        
-        project_megaphone_is_active = True
-
-        if not project_megaphone_is_active and not self.get_campaign() and not self.is_test():
+        if not self.get_campaign() and not self.is_test():
             return HttpResponse()
         else:
             self.context_data = self.get_context_data(params=kwargs)
