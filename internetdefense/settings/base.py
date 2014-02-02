@@ -62,7 +62,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'ip2geo.middleware.CityMiddleware',
+    # 'ip2geo.middleware.CityMiddleware',
 ]
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -76,7 +76,7 @@ INSTALLED_APPS = [
     'campaigns',
     'analytics',
     'include',
-    'ip2geo',
+    # 'ip2geo',
     'compressor',
 ]
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -90,7 +90,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'include.context_processors.include_url',
     'internetdefense.context_processors.secure_static_url',
     'internetdefense.context_processors.include_domain',
-    'ip2geo.context_processors.add_session',
+    # 'ip2geo.context_processors.add_session',
 ]
 
 
