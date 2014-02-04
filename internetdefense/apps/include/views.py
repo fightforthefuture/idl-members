@@ -90,7 +90,7 @@ class IncludeMixin(object):
             'is_test': self.is_test(),
             'language_code': self.request.LANGUAGE_CODE,
             'variant': self.request.GET.get('variant', 'banner'),
-            'country': self.request.session.get('country_name'),
+            # 'country': self.request.session.get('country_name'),
             'url': '%s?%s' % (
                 reverse('campaign'),
                 self.request.META['QUERY_STRING'],
