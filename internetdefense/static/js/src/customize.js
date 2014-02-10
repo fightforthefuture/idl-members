@@ -20,7 +20,7 @@
             output.data('template', output.val());
             this.update = function(){
                 var new_code = output.data('template');
-                new_code = new_code.replace('{variant}', configString('variant', $('[name="variant"]:checked').val()));
+                // new_code = new_code.replace('{variant}', configString('variant', $('[name="variant"]:checked').val()));
                 new_code = new_code.replace('{campaign}', configString('campaign', $('[name="campaign"]:checked').val()));
                 output.val('<script type="text/javascript">\n' + new_code + '\n</script>');
             };
@@ -52,7 +52,8 @@
 
             singleCampaign.bind('change', function(evt){
                 // singleCampaign.attr('value', campaignChoice.val());
-                   singleCampaign.attr('value', 'stopwatchingusrally')
+                singleCampaign.attr('value', 'day-we-fight-back');
+
                 self.update();
             });
 

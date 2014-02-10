@@ -39,7 +39,7 @@
     }
 
     /* Require all campaigns to be enabled. */
-    if (_idl.variant !== 'banner' || _idl.campaign) {
+    if (_idl.variant !== 'banner' || (_idl.campaign && _idl.campaign !== 'day-we-fight-back')) {
         return;
     }
 

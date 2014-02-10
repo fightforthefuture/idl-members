@@ -23,6 +23,7 @@
             <textarea name="output" readonly>{% include "include.html" %}</textarea>
         </div>
 
+        <!--
         {% for variant in variants %}
             <div class="small {% if forloop.first %}indented light{% endif %} {% cycle "lefty" "righty" %}">
                 <span>
@@ -35,6 +36,7 @@
                 <span class="circle">OR</span>
             {% endif %}
         {% endfor %}
+        -->
 
         <div class="row biggie">
 
@@ -53,7 +55,7 @@
                 <div class="small">
                     <span class="inputs">
                         <input type="radio" name="campaign" id="single" value="" />
-                        <label for="single" class="montserrat">Just for <a href="https://rally.stopwatching.us/fight-surveillance-with-9-lines-of-code/">Stop Watching Us Rally</a></label>
+                        <label for="single" class="montserrat">Just for <a href="https://thedaywefightback.org/?r=fftf">The Day We Fight Back</a></label>
                     </span>
                     <p class="description">Code is live as soon as you add it, but you'll have to update it for each new campaign.</p>
                     <fieldset style="display: none;">
