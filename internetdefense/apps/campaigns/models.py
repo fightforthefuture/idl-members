@@ -57,3 +57,20 @@ def invalidate_cache(sender, instance, created, **kwargs):
     if not created:
         cache.clear()
 post_save.connect(invalidate_cache, sender=Campaign)
+
+
+def clear_cloudflare_cache(sender, instance, created, **kwargs):
+        import os, re, urllib, urllib2
+        cloudflare_url = 'https://www.cloudflare.com/api_json.html'
+        domain = 'internetdefenseleague.org'
+        data = {
+            'a': 'fpurge_ts',
+            'tkn': os.environ.get('CLOUDFLARE_API_KEY'),
+            'email': 'team@fightforthefuture.org',
+            'z': domain,
+            'v': '1'
+        }
+        encoded_data = urllib.urlencode(data)
+        result = urllib2.urlopen(cloudflare_url, encoded_data)
+        print result.read()
+post_save.connect(clear_cloudflare_cache, sender=Campaign)
