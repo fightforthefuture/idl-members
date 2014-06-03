@@ -52,7 +52,7 @@
 
             singleCampaign.bind('change', function(evt){
                 // singleCampaign.attr('value', campaignChoice.val());
-                singleCampaign.attr('value', 'day-we-fight-back');
+                singleCampaign.attr('value', 'reset-the-net');
 
                 self.update();
             });

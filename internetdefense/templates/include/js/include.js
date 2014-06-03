@@ -11,7 +11,7 @@
     var qs = querystring.decode(),
         canPostMessage = !!window.postMessage,
         defaults = {
-            'variant': 'banner',
+            'variant': 'modal',
             'campaign': null,
             'url': null,
             'cookieLength': 24 * 60 * 60 * 1000,
@@ -39,17 +39,12 @@
     }
 
     /* Require all campaigns to be enabled. */
-    if (_idl.variant !== 'banner' || (_idl.campaign && _idl.campaign !== 'day-we-fight-back')) {
+    if (_idl.variant !== 'modal' || (_idl.campaign && _idl.campaign !== 'reset-the-net')) {
         return;
     }
 
-    /* The Day We Fight Back :: JavaScript */
-    /* @license magnet:?xt=urn:btih:0b31508aeb0634b347b8270c7bee4d411b5d4109&dn=agpl-3.0.txt GPL-v3-or-Later */
-    (function(){
-        var e = document.createElement('script'); e.type='text/javascript'; e.async = true;
-        e.src = document.location.protocol + '//d1agz031tafz8n.cloudfront.net/thedaywefightback.js/widget.min.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s);
-    })();
-    /* @license-end */
+    var e = document.createElement('script'); e.type='text/javascript'; e.async = true;
+    e.src = '//fightforthefuture.github.io/reset-the-net-widget/widget/rtn.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s);
 
     {% include 'include/js/lib/closure_finish.js' %}
