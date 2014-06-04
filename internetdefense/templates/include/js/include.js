@@ -38,13 +38,21 @@
         return;
     }
 
-    /* Require all campaigns to be enabled. */
-    if (_idl.variant !== 'modal' || (_idl.campaign && _idl.campaign !== 'reset-the-net')) {
+    /* Verify campaign selection. */
+    if (_idl.campaign && _idl.campaign !== 'reset-the-net') {
         return;
     }
 
+    /* Pick a script. */
+    var scriptUrl = '';
+    if (_idl.variant === 'banner') {
+        scriptUrl = '//fightforthefuture.github.io/reset-the-net-banner/banner/rtn.js';
+    } else {
+        scriptUrl = '//fightforthefuture.github.io/reset-the-net-widget/widget/rtn.js';
+    }
+
     var e = document.createElement('script'); e.type='text/javascript'; e.async = true;
-    e.src = '//fightforthefuture.github.io/reset-the-net-widget/widget/rtn.js';
+    e.src = scriptUrl;
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s);
 
     {% include 'include/js/lib/closure_finish.js' %}
