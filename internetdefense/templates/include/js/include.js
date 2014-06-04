@@ -45,7 +45,7 @@
 
     /* Heard you liked tests... */
     if (defaults.test) {
-        var _rtn_options = {
+        window._rtn_options = {
             always_show_widget: true
         }
     }
